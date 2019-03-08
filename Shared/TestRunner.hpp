@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 namespace testRunner
 {
@@ -13,7 +14,7 @@ namespace testRunner
     };
 
     template<typename ParamType, typename ReturnType, unsigned int numTests>
-    int runTests(TestData<ParamType, ReturnType> testData[numTests], ReturnType (*pFunction)(ParamType p))
+    int runTests(TestData<ParamType, ReturnType> testData[numTests], ReturnType (*pFunction)(ParamType& p))
     {
         int failed = 0;
         for(unsigned int i = 0; i < numTests; ++i)
@@ -29,6 +30,17 @@ namespace testRunner
         
         std::cout << "Passed " << numTests - failed << " / " << numTests << " tests" << std::endl;
         return failed;
+    }
+    
+    template<typename r>
+    std::ostream& operator<<(std::ostream& os, std::vector<r> td)
+    {
+        for(auto it = td.begin(); it != td.end(); ++it)
+        {
+            os << *it << std::endl;
+        }
+        
+        return os;
     }
 }
 

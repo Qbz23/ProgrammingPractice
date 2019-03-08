@@ -31,7 +31,10 @@ class BinaryTree
             mData = initData;
         }
         
-        ~BinaryTree()
+        //TODO But not tonight changing this from dtor to free introduced a memory leak 
+        //Need to think of a better way of passing around bst. Might just be passing only by 
+        //ref and then this can dtor again but not right this second. next commit. 
+        void Free()
         {
             FreeTree(mRoot);
         }
