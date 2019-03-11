@@ -3,7 +3,7 @@
 // find the kth to last item in a singly linked list 
 
 #include "../../Shared/TestRunner.hpp"
-#include "LinkedList.hpp"
+#include "../../Shared/DataStructures/LinkedList.hpp"
 
 struct TestParam
 {
@@ -18,7 +18,7 @@ DEF_TESTDATA(KToLastData, TestParam, int)
 //Also assumes length of linked list <= k
 //A better world wouldnt have alloc here but its not the end of the world, 
 //going after logic of the problems
-int kToLast(TestParam p)
+int kToLast(TestParam& p)
 {
     LinkedList::Node* pCurrent = p.l.GetHead();
     int counter = 0;
@@ -34,9 +34,7 @@ int kToLast(TestParam p)
     int adjustedIndex = (counter - p.k) % p.k;
     int result = historyBuffer[adjustedIndex];
     
-    delete historyBuffer;
-    p.l.Clear();
-    
+    delete historyBuffer;    
     return result;
 }
 
@@ -49,5 +47,5 @@ int main()
     {{{1, 2, 3, 4, 5, 6, 7, 8},                 4},     5},
     {{{9, 8, 4, 3, 2, 6, 1, 2, 9, 4, 6, 7, 12}, 6},     2}};
     
-    testRunner::runTests<TestParam, int, kNumTestCases>(testCases, &::kToLast);
+    testRunner::runTests<TestParam, int, kNumTestCases>(testCases, &kToLast);
 }

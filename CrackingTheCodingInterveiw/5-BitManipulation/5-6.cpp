@@ -12,11 +12,10 @@ struct TestParam
 DEF_TESTDATA(ConversionData, TestParam, int);
 
 //Could be better, probably better to find next highest power of 2 and start from that num of bits
-int conversion(TestParam p)
+int conversion(TestParam& p)
 {
     int numBits = 4 * sizeof(p.a);
     int checkBits = p.a ^ p.b;
-    std::cout << "xor: " << checkBits << std::endl;
     int numFlips = 0;
     for(int i = 0; i < numBits; ++i)
     {

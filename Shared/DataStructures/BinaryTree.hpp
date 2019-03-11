@@ -25,26 +25,34 @@ class BinaryTree
         {
             uint32_t dataIndex = 0;
             uint32_t unassignedParents = 0;
-            mRoot = BuildTree(initData, dataIndex, 0, maxDepth, unassignedParents);
+            mpRoot = BuildTree(initData, dataIndex, 0, maxDepth, unassignedParents);
             assert(dataIndex == initData.size());
             //Just for debug printing
             mData = initData;
         }
         
-        //TODO But not tonight changing this from dtor to free introduced a memory leak 
-        //Need to think of a better way of passing around bst. Might just be passing only by 
-        //ref and then this can dtor again but not right this second. next commit. 
-        void Free()
+        ~BinaryTree()
         {
-            FreeTree(mRoot);
+            FreeTree(mpRoot);
         }
         
-        Node* getRoot() { return mRoot; }
-        const Node* getRoot() const { return mRoot; } 
-        
-        int height() const 
+        BinaryTree(const BinaryTree& bt) : mBuildTraversal(Traversal_PreOrder)
         {
-            Node* pCur = mRoot;
+            CopyTree(bt);
+        }
+        
+        BinaryTree& operator=(const BinaryTree& bt)
+        {
+            CopyTree(bt);
+            return *this;
+        }
+        
+        Node* GetRoot() { return mpRoot; }
+        const Node* GetRoot() const { return mpRoot; } 
+        
+        int Height() const 
+        {
+            Node* pCur = mpRoot;
             int height = 0;
             //This assumes left will be longest which is safe w how this tree is built but not in general
             while(pCur != nullptr)
@@ -59,7 +67,7 @@ class BinaryTree
         friend std::ostream& operator<<(std::ostream& os, const BinaryTree& tree);
         
     private:
-        Node* mRoot = nullptr; 
+        Node* mpRoot = nullptr; 
         std::vector<int> mData; //For easy info printing
         const Traversal mBuildTraversal;
         
@@ -114,6 +122,27 @@ class BinaryTree
             }
         }
         
+        void CopyTree(const BinaryTree& bt)
+        {
+            mpRoot = CopyTreeImpl(bt.GetRoot());
+            mData = bt.mData;
+        }
+        
+        Node* CopyTreeImpl(const Node* pOther)
+        {
+            Node* pNew = new Node(pOther->data);
+            if(pOther->pLeft)
+            {
+                pNew->pLeft = CopyTreeImpl(pOther->pLeft);
+            }
+            if(pOther->pRight)
+            {
+                pNew->pRight = CopyTreeImpl(pOther->pRight);
+            }
+            
+            return pNew;
+        }
+        
         //Does post order delete 
         void FreeTree(Node* pNode)
         {
@@ -162,7 +191,7 @@ std::ostream& operator<<(std::ostream& os, const BinaryTree& tree)
             os << "}, ";
     }
     
-    os << std::to_string(tree.height()) << ", ";
+    os << std::to_string(tree.Height()) << ", ";
     
     switch(tree.mBuildTraversal)
     {
@@ -174,5 +203,5 @@ std::ostream& operator<<(std::ostream& os, const BinaryTree& tree)
             os << "Post"; break;
     }
     os << "-Order}\n";
-    return PrintNode(os, tree.getRoot(), 0);
+    return PrintNode(os, tree.GetRoot(), 0);
 }

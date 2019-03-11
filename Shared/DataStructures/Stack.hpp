@@ -3,10 +3,10 @@
 #include <algorithm> //so I can reverse the vector so it is more intuitive to initialize
 #include <iostream>
 
-class iStack 
+class Stack 
 {
     public:
-        iStack(std::vector<int> d) 
+        Stack(std::vector<int> d) 
         {
             std::reverse(d.begin(), d.end());
             for(auto it = d.begin(); it != d.end(); ++it)
@@ -15,13 +15,13 @@ class iStack
             }
         }
         
-        bool operator==(iStack other)
+        bool operator==(Stack other)
         {
-            iStack aCopy(*this);
-            iStack bCopy(other);
-            while(!aCopy.empty())
+            Stack aCopy(*this);
+            Stack bCopy(other);
+            while(!aCopy.Empty())
             {
-                if(aCopy.pop() != bCopy.pop())
+                if(aCopy.Pop() != bCopy.Pop())
                 {
                     return false;
                 }
@@ -30,30 +30,30 @@ class iStack
             return true;
         }
         
-        bool operator!=(iStack other)
+        bool operator!=(Stack other)
         {
             return !(*this == other);
         }
         
-        friend std::ostream& operator<<(std::ostream& os, iStack a);
+        friend std::ostream& operator<<(std::ostream& os, Stack a);
 
         //For the most part im always gonna want top when i pop
-        int pop() { int val = mStack.top(); mStack.pop(); return val; }
-        int push(int val) { mStack.push(val); }
-        int top() { return mStack.top(); }
-        bool empty() { return mStack.empty(); }
+        int Pop() { int val = mStack.top(); mStack.pop(); return val; }
+        int Push(int val) { mStack.push(val); }
+        int Top() { return mStack.top(); }
+        bool Empty() { return mStack.empty(); }
         
     private:
         std::stack<int> mStack;
         
 };
 
-std::ostream& operator<<(std::ostream& os, iStack a)
+std::ostream& operator<<(std::ostream& os, Stack a)
 {
-    iStack copy(a);
-    while(!copy.empty())
+    Stack copy(a);
+    while(!copy.Empty())
     {
-        os << copy.pop();
+        os << copy.Pop();
     }
     
     return os;

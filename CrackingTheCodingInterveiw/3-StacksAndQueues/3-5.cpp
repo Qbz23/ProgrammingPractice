@@ -4,12 +4,12 @@
 // Can use a temp stack but not a different data structure 
 // stack can push pop peek and isEmpty. top == peek  
 
-#include "iStack.hpp"
 #include "../../Shared/TestRunner.hpp"
+#include "../../Shared/DataStructures/Stack.hpp"
 
-iStack sortStack(iStack inputStack)
+Stack sortStack(Stack& inputStack)
 {
-    if(inputStack.empty())
+    if(inputStack.Empty())
         return inputStack;
     
     //Pop off top of input stack 
@@ -20,34 +20,34 @@ iStack sortStack(iStack inputStack)
     //If pop'd is bigger, hold other in temp 
     //If pop'd is bigger than next, push temp to original stack and hold next other in temp 
     
-    iStack outputStack = iStack(std::vector<int>());
+    Stack outputStack = Stack(std::vector<int>());
     //Start by putting first in other
-    outputStack.push(inputStack.pop());
-    while(!inputStack.empty())
+    outputStack.Push(inputStack.Pop());
+    while(!inputStack.Empty())
     {
-        int val = inputStack.pop(); 
-        if(val <= outputStack.top())
+        int val = inputStack.Pop(); 
+        if(val <= outputStack.Top())
         {
-            outputStack.push(val);
+            outputStack.Push(val);
         }
         else
         {
-            int temp = outputStack.pop();
+            int temp = outputStack.Pop();
             //Pop stuff off the output stack till you find something bigger this can go on top of 
-            while(!outputStack.empty() && val > outputStack.top())
+            while(!outputStack.Empty() && val > outputStack.Top())
             {
-                inputStack.push(temp);
-                temp = outputStack.pop();
+                inputStack.Push(temp);
+                temp = outputStack.Pop();
             }
-            outputStack.push(val);
-            outputStack.push(temp);
+            outputStack.Push(val);
+            outputStack.Push(temp);
         }
     }
     
     return outputStack;
 }
 
-DEF_TESTDATA(SortStackData, iStack, iStack); 
+DEF_TESTDATA(SortStackData, Stack, Stack); 
 
 int main()
 {
@@ -60,5 +60,5 @@ int main()
         {{{}},                          {{}}}};
         
         
-    testRunner::runTests<iStack, iStack, kNumTestCases>(testCases, &sortStack);
+    testRunner::runTests<Stack, Stack, kNumTestCases>(testCases, &sortStack);
 }

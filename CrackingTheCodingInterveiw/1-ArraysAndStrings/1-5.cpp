@@ -58,7 +58,7 @@ bool oneAwayReplace(std::string a, std::string b)
     return true;
 }
 
-bool oneAway(TestParam p)
+bool oneAway(TestParam& p)
 {
     int lengthDelta = p.a.length() - p.b.length();
     //Checking for remove or insert 

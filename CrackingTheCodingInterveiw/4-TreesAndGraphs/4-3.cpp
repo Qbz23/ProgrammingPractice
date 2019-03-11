@@ -3,8 +3,8 @@
 // D linked lists for a tree with depth D 
 
 #include "../../Shared/TestRunner.hpp"
-#include "../2-LinkedLists/LinkedList.hpp"
-#include "BinaryTree.hpp"
+#include "../../Shared/DataStructures/LinkedList.hpp"
+#include "../../Shared/DataStructures/BinaryTree.hpp"
 
 void getDepthsImpl(BinaryTree::Node* n, int depth, std::vector<LinkedList>& out)
 {
@@ -22,20 +22,22 @@ DEF_TESTDATA(DepthData, BinaryTree, std::vector<LinkedList>);
 
 std::vector<LinkedList> getDepths(BinaryTree& bt)
 {
-    DepthData dd(bt, std::vector<LinkedList>());
+    std::vector<LinkedList> output;
     //probably not ideal to call height, could instead check if size greater than depth and push back
-    dd.expectedOutput.resize(dd.input.height());
-    getDepthsImpl(dd.input.getRoot(), 0, dd.expectedOutput);
-    return dd.expectedOutput;
+    output.resize(bt.Height());
+    getDepthsImpl(bt.GetRoot(), 0, output);
+    return output;
 }
 
 int main()
 {
-    const unsigned int kNumTestCases = 2;
-    //TODO when fix bt memory leak add more test cases 
+    const unsigned int kNumTestCases = 5;
     DepthData testCases[kNumTestCases] = {
-        {{{{1, 2, 3, 4, 5, 6}},       3}, {{{1}},{{2,5}},{{3,4,6}}}},
-        {{{{4, 2, 1, 3, 6, 5, 7}},    3}, {{{4}},{{2,6}},{{1,3,5,7}}}}
+        {{{{1, 2, 3, 4, 5, 6}},             3},                                     {{{1}},{{2,5}},{{3,4,6}}}},
+        {{{{4, 2, 1, 3, 6, 5, 7}},          3},                                     {{{4}},{{2,6}},{{1,3,5,7}}}},
+        {{{{1, 2, 3, 4, 5, 6, 7}},          3,  BinaryTree::Traversal_InOrder},     {{{4}},{{2,6}},{{1,3,5,7}}}},     
+        {{{{1, 3, 2, 5, 7, 6, 4}},          3,  BinaryTree::Traversal_PostOrder},   {{{4}},{{2,6}},{{1,3,5,7}}}},
+        {{{{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}},6},                                     {{{1}},{{2}},{{3}},{{4}},{{5,8}},{{6,7,9,10}}}}
     };
     
     testRunner::runTests<BinaryTree, std::vector<LinkedList>, kNumTestCases>(testCases, &getDepths);

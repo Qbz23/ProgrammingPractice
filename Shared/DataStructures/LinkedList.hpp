@@ -25,6 +25,28 @@ class LinkedList
             }
         }
         
+        ~LinkedList()
+        {
+            Node* pCurrent = mpHead;
+            while(pCurrent != nullptr)
+            {
+                Node* deadNode = pCurrent;
+                pCurrent = pCurrent->pNext;
+                delete deadNode;
+            }
+        }
+        
+        LinkedList(const LinkedList& l)
+        {
+            CopyImpl(l);
+        }
+        
+        LinkedList& operator=(const LinkedList& l)
+        {
+            CopyImpl(l);
+            return *this;
+        }
+        
         void Push(int d)
         {
             if(!mpHead)
@@ -41,18 +63,7 @@ class LinkedList
                 cur->pNext = new Node(d);
             }
         }
-    
-        void Clear()
-        {
-            Node* pCurrent = mpHead;
-            while(pCurrent != nullptr)
-            {
-                Node* deadNode = pCurrent;
-                pCurrent = pCurrent->pNext;
-                delete deadNode;
-            }
-        }
-        
+                
         Node* GetHead() { return mpHead; }
         const Node* GetHead() const { return mpHead; }
         
@@ -79,6 +90,22 @@ class LinkedList
     
     private:
         Node* mpHead = nullptr;
+        
+        void CopyImpl(const LinkedList& l)
+        {
+            const Node* lHead = l.GetHead();
+            const Node* pCurrent = lHead->pNext;
+            mpHead = new Node(lHead->data);
+            Node* pSelf = mpHead;
+            while(pCurrent != nullptr)
+            {
+                Node* newNode = new Node(pCurrent->data);
+                pCurrent = pCurrent->pNext;
+                pSelf->pNext = newNode;
+                pSelf = newNode;
+            }
+        }        
+
 };
 
 std::ostream& operator<<(std::ostream& os, LinkedList ll)

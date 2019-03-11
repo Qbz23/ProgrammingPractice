@@ -10,7 +10,7 @@
 DEF_TESTDATA(IsUniqueData, std::string, bool) 
 
 // O(n)
-bool isUnique(std::string s)
+bool isUnique(std::string& s)
 {
     const unsigned int kNumAscii = 256;
     bool charFound[kNumAscii] = { false };  
@@ -30,7 +30,7 @@ bool isUnique(std::string s)
 }
 
 // O(n^2)
-bool isUniqueNoAdditionalData(std::string s)
+bool isUniqueNoAdditionalData(std::string& s)
 {
     for(size_t i = 0; i < s.length(); ++i)
     {
