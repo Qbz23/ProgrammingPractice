@@ -6,10 +6,14 @@ Vectors
 =
 Push vs Emplace Back 
   https://stackoverflow.com/questions/4303513/push-back-vs-emplace-back
-  TODO next commit make noisy class so you can see the effects 
-
-
+  See Other/EmplaceTest.cpp for example. It seems to me the worst calling 
+  pattern is passing a constructed temp. Passing a local is ok to both push 
+  back and emplace back. One ctor for temp, then one operator= for putting it 
+  in the container. The best calling pattern is passing variadic args which 
+  constructs the object in place in the container. This requires only one 
+  construction. 
+ 
 Stack 
 =
-Calling top on an empty stack leads to undefined behavior 
+Calling top on an empty stack leads to undefined behavior. 
 
