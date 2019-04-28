@@ -1,0 +1,15 @@
+Anything that you had to look up while solving a problem should go here. 
+Also any "knowledge" type questions that aren't explictly coding 
+====
+
+Vectors 
+=
+Push vs Emplace Back 
+  https://stackoverflow.com/questions/4303513/push-back-vs-emplace-back
+  TODO next commit make noisy class so you can see the effects 
+
+
+Stack 
+=
+Calling top on an empty stack leads to undefined behavior 
+
