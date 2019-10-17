@@ -1,9 +1,3 @@
-Anything that you had to look up while solving a problem should go here. 
-Also any "knowledge" type questions that aren't explictly coding 
-====
-
-Vectors 
-=
 Push vs Emplace Back 
   https://stackoverflow.com/questions/4303513/push-back-vs-emplace-back
   See Other/EmplaceTest.cpp for example. It seems to me the worst calling 
@@ -12,8 +6,3 @@ Push vs Emplace Back
   in the container. The best calling pattern is passing variadic args which 
   constructs the object in place in the container. This requires only one 
   construction. 
- 
-Stack 
-=
-Calling top on an empty stack leads to undefined behavior. 
-
