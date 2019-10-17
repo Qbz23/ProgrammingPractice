@@ -1,0 +1,16 @@
+Given a grid, how would you find the nearest N poitns to a point of interest?
+What if the grid and N can can be arbitrarily large? 
+How might spatial partitions help? 
+
+Write a fx to draw a line on a texture backed by a 1d array 
+where each uint8 represents 8 pixels, each pixel being a bit. 
+Line is horizontal. given w/h and line start and line length 
+
+Write a function to rotate an image backed by a 1d array 90 degrees clockwise 
+
+Given a mesh with arbitrary mixed polygon sizes snf s buffer of polygon sizes to interpret vertices/indices, 
+return the indices of a triangulated mesh 
+
+Implement Dijsktra 
+Upgrade to A* 
+

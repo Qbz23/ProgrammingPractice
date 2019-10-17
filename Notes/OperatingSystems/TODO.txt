@@ -1,0 +1,10 @@
+Explain Programs v Processes v Threads. 
+What are their responsibilities with respect to execution and memory? 
+How does this map to gpu?
+How is memory allocated to these varies entities and guarded? 
+
+Explain cache in detail. 
+How many levels are there typically? How big are they?
+How does data go in and out of the cache?
+Describe a scenario where a buffer or texture could be laid out to optimize cache usage. 
+

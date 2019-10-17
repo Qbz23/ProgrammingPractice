@@ -1,0 +1,13 @@
+Say you're in the process of bringing up a new feature. 
+You may need to make some changes to interfaces or the overall design 
+How would you design your api and test collateral to be resistant to breaking from these changes? 
+
+What functionality would you implement in a testing infrastructure to makeebugging
+ebugging/root cause identification quicker and easier? 
+
+How would you identify performance bottlnecks without access to source and symbols? 
+
+Describe how you'd design graph where nodes represent either units of execution or data. 
+How might you improve the scalability of the system?
+How might you improve the flexibility of the system? 
+How would you evaluate the graph? 

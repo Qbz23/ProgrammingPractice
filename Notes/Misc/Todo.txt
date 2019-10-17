@@ -1,0 +1,7 @@
+Say you wanted to optimize an app for a new platform. 
+What tools and strategies would you use and why? 
+
+How do you approach learning a systems with little documentaion ?
+
+Describe a situation where you recognized a potential improvemnt on something 
+that had long been recognized as "good enough"

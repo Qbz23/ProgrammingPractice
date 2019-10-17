@@ -1,0 +1,22 @@
+How is Mip Level selected?
+Explain graidents/derivitives 
+Explain trilinear interpolation 
+What tecnhiques could reduce memory bandwidth?
+What is the impact of high memory bandwidth?
+What is a situation where the gpu stalls waiting for the cpu and vice versa? 
+How does answer to above change in 11 vs 12? 
+What advantages does 12 provide over 11? 
+What problems did 12 intend to solve?
+What was complicated by 12? Why were these complications neceessary? 
+What is the purpose of working in homogenous cooradinates? 
+Explain the entire graphics pipeline. Dont forget clip, cull, and primitive assembly. 
+Where in the pipeline are primitives backface culled? 
+How are primitives backface culled? 
+What responsibility does the app have in taking advantage of culling? 
+Explain the output merger 
+How would you identify which shader stage is the bottleneck?
+Explain groupshared memory in compute shaders \
+Describe a rendering feature youve implemented in detail 
+Desciribe how you'd create the effect of a bumpy glass translucent wall with something behind it  (refraction)
+Describe common spaces. What are they used for 
+Describe how NDC maps to pixels 
