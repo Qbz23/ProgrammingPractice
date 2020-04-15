@@ -14,3 +14,21 @@ return the indices of a triangulated mesh
 Implement Dijsktra 
 Upgrade to A* 
 
+Reimplement CS350 Spatial Paritions
+
+Implement variety of sorting algorithms 
+	Quicksort
+	Mergesort
+	Timsort
+	Heapsort
+	Bubble Sort
+	Insertion Sort
+	Selection Sort 
+	Tree Sort 
+	Shell Sort
+	Bucket Sort
+	Radix Sort
+	Counting Sort 
+	Cubesort 
+	Bitonic Sort 
+	

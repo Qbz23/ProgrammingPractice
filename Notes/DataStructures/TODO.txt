@@ -1,1 +1,16 @@
 What are the perf differences between unordered/ordered set? 
+
+Implement your own:
+	Vector
+	Stack 
+	Queue 
+	Linked List, Single/Double
+	Skip List
+	Hash Table 
+	Binary Search Tree 
+	Cartesian Tree 
+	B Tree 
+	Red Black Tree
+	Splay Tree 
+	AVL Tree 
+	KD Tree 
