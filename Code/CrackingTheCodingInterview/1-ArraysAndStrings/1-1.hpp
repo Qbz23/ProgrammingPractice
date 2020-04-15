@@ -3,7 +3,7 @@
 // determine if string has all unique characters
 // How to solve if no extra data?
 
-#include "../../Shared/TestRunner.hpp"
+#include "../../Shared/Testing/TestRunner.hpp"
 #include <string>
 #include <iostream>
 
@@ -46,7 +46,7 @@ bool isUniqueNoAdditionalData(std::string& s)
     return true;
 }
 
-int main()
+int IsUnique_1_1()
 {
     const unsigned int kNumTestCases = 5;
     IsUniqueData testCases[kNumTestCases] = {
@@ -56,8 +56,11 @@ int main()
         {"",            true},
         {"abc123!@#a",  false}};
     
-    std::cout << "Basic" << std::endl;
-    testRunner::runTests<std::string, bool, kNumTestCases>(testCases, &isUnique);
-    std::cout << "No Additional Data" << std::endl;
-    testRunner::runTests<std::string, bool, kNumTestCases>(testCases, &isUniqueNoAdditionalData);
+    int failedCases = 0;
+    // Basic
+    failedCases += testRunner::runTests<std::string, bool, kNumTestCases>(testCases, &isUnique);
+    // No additional data
+    failedCases += testRunner::runTests<std::string, bool, kNumTestCases>(testCases, &isUniqueNoAdditionalData);
+
+    return failedCases;
 }

@@ -1,7 +1,7 @@
 // 5-6 Conversion - pg 116
 // Write a function to determine the number of bits that must be flipped to convert int a to b 
 
-#include "../../Shared/TestRunner.hpp"
+#include "../../Shared/Testing/TestRunner.hpp"
 
 struct TestParam
 {

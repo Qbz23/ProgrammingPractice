@@ -4,7 +4,7 @@
 // Can use a temp stack but not a different data structure 
 // stack can push pop peek and isEmpty. top == peek  
 
-#include "../../Shared/TestRunner.hpp"
+#include "../../Shared/Testing/TestRunner.hpp"
 #include "../../Shared/DataStructures/Stack.hpp"
 
 Stack sortStack(Stack& inputStack)

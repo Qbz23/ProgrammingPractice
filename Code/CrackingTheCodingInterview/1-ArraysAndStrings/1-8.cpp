@@ -9,7 +9,7 @@
 // 
 // matrix[0] = [1, 2, 3 4]
 // therefore i = row and j = col 
-#include "../../Shared/TestRunner.hpp"
+#include "../../Shared/Testing/TestRunner.hpp"
 #include <vector>
 
 typedef std::vector<std::vector<int>> Matrix;

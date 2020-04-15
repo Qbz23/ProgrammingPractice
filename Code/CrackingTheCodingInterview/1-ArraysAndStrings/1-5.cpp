@@ -3,7 +3,7 @@
 // edit via Insert, remove, or replace 
 // check if a is one or zero edits away from b 
 
-#include "../../Shared/TestRunner.hpp"
+#include "../../Shared/Testing/TestRunner.hpp"
 #include <string>
 #include <math.h>
 

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="1-ArraysAndStrings\1-5.cpp">
+      <Filter>1-ArraysAndStrings</Filter>
+    </ClCompile>
+    <ClCompile Include="1-ArraysAndStrings\1-8.cpp">
+      <Filter>1-ArraysAndStrings</Filter>
+    </ClCompile>
+    <ClCompile Include="2-LinkedLists\2-2.cpp">
+      <Filter>2-LinkedLists</Filter>
+    </ClCompile>
+    <ClCompile Include="3-StacksAndQueues\3-5.cpp">
+      <Filter>3-StacksAndQueues</Filter>
+    </ClCompile>
+    <ClCompile Include="4-TreesAndGraphs\4-3.cpp">
+      <Filter>4-TreesAndGraphs</Filter>
+    </ClCompile>
+    <ClCompile Include="5-BitManipulation\5-6.cpp">
+      <Filter>5-BitManipulation</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="1-ArraysAndStrings">
+      <UniqueIdentifier>{550eadb8-2e0f-489b-91e5-3099e175f6b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2-LinkedLists">
+      <UniqueIdentifier>{4bf1683b-6c06-4662-87bb-21cc0da84da7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3-StacksAndQueues">
+      <UniqueIdentifier>{d31cc2ea-c539-4f74-bec5-201d67da9dc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="4-TreesAndGraphs">
+      <UniqueIdentifier>{09044e79-34eb-47c6-a711-03a25262d37d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="5-BitManipulation">
+      <UniqueIdentifier>{bb360440-6d5a-4f33-ac62-e53ec98f2a2b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="1-ArraysAndStrings\1-1.hpp">
+      <Filter>1-ArraysAndStrings</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
