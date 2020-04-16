@@ -1,18 +1,19 @@
 // 5-6 Conversion - pg 116
 // Write a function to determine the number of bits that must be flipped to convert int a to b 
 
-#include "../../Shared/Testing/TestRunner.hpp"
+#include "../Tests.h"
+#include "../../Shared/Testing/TestRunner.h"
 
-struct TestParam
+struct ConversionTestParam
 {
     int a;
     int b;
 };
 
-DEF_TESTDATA(ConversionData, TestParam, int);
+DEF_TESTDATA(ConversionData, ConversionTestParam, int);
 
 //Could be better, probably better to find next highest power of 2 and start from that num of bits
-int conversion(TestParam& p)
+int Conversion(ConversionTestParam& p)
 {
     int numBits = 4 * sizeof(p.a);
     int checkBits = p.a ^ p.b;
@@ -29,7 +30,7 @@ int conversion(TestParam& p)
     return numFlips;
 }
 
-int main()
+int Tests::Run_5_6()
 {
     const unsigned int kNumTestCases = 8; 
     ConversionData testCases[kNumTestCases] = {
@@ -43,5 +44,5 @@ int main()
         {{3,    31},    3},     //00011     11111
     };
     
-    testRunner::runTests<TestParam, int, kNumTestCases>(testCases, &conversion);
+    return TestRunner::RunTestCases<ConversionTestParam, int, kNumTestCases>(testCases, &Conversion);
 }

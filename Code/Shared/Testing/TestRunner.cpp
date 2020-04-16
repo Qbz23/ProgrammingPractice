@@ -1,12 +1,12 @@
 #include "TestRunner.h"
 
 static std::vector<std::pair<int(*)(), std::string>> m_Tests;
-void TestRunner::RegisterTest(std::pair<int(*)(), std::string> test)
+void TestRunner::RegisterTest(int(*pTestFx)() , std::string testName)
 {
-    m_Tests.push_back(test);
+    m_Tests.push_back(std::make_pair(pTestFx, testName));
 }
 
-void TestRunner::RunAllTests()
+int TestRunner::RunAllTests()
 {
     int numPassed = 0;
     for (auto it = m_Tests.begin(); it != m_Tests.end(); ++it)
@@ -32,4 +32,6 @@ void TestRunner::RunAllTests()
 
     std::cout << "Passed " + std::to_string(numPassed) << " / " <<
         std::to_string(m_Tests.size()) << " Tests." << std::endl;
+
+    return (int)m_Tests.size() - numPassed;
 }

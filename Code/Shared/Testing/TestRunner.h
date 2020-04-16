@@ -9,8 +9,8 @@
 
 namespace TestRunner
 {
-    extern void RegisterTest(std::pair<int(*)(), std::string> test);
-    extern void RunAllTests();
+    extern void RegisterTest(int(*pTestFx)(), std::string testName);
+    extern int RunAllTests();
 
     template<typename ParamType, typename ReturnType>
     struct TestData
