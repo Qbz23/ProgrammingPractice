@@ -12,7 +12,8 @@ int main()
     TestRunner::RegisterTest(std::make_pair(&Tests::Run_2_2, "2-2. Kth to Last"));
 
     // Stacks and Queues 
-    
+    TestRunner::RegisterTest(std::make_pair(&Tests::Run_3_5, "3-5. Sort Stack"));
+
     // Trees and Graphs 
 
     // Bit Manipulation
