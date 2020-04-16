@@ -9,9 +9,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DataStructures\BinaryTree.hpp">
-      <Filter>DataStructures</Filter>
-    </ClInclude>
     <ClInclude Include="Testing\NoisyObject.hpp">
       <Filter>Testing</Filter>
     </ClInclude>
@@ -19,11 +16,11 @@
     <ClInclude Include="DataStructures\Stack.h">
       <Filter>DataStructures</Filter>
     </ClInclude>
+    <ClInclude Include="DataStructures\BinaryTree.h">
+      <Filter>DataStructures</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DataStructures\BinaryTreeTester.cpp">
-      <Filter>DataStructures</Filter>
-    </ClCompile>
     <ClCompile Include="Testing\TestRunner.h">
       <Filter>Testing</Filter>
     </ClCompile>
@@ -34,6 +31,9 @@
       <Filter>DataStructures</Filter>
     </ClCompile>
     <ClCompile Include="DataStructures\Stack.cpp">
+      <Filter>DataStructures</Filter>
+    </ClCompile>
+    <ClCompile Include="DataStructures\BinaryTree.cpp">
       <Filter>DataStructures</Filter>
     </ClCompile>
   </ItemGroup>

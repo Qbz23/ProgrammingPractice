@@ -1,5 +1,10 @@
 #include "BinaryTree.hpp"
 
+//
+// Will have a better more general system for testing data structures in the future 
+// Doesn't really fit into new project organization as-is.
+//
+
 int main()
 {
     const uint32_t kNumTestTrees = 9;
@@ -22,6 +27,4 @@ int main()
     {
         std::cout << std::to_string(i) << ": " << trees[i] << std::endl;
     }
-   
-   //Need to free trees? leaking dat memory. add an init to actually alloc. 
 }

@@ -3,33 +3,36 @@
 // D linked lists for a tree with depth D 
 
 #include "../../Shared/Testing/TestRunner.h"
-#include "../../Shared/DataStructures/LinkedList.hpp"
-#include "../../Shared/DataStructures/BinaryTree.hpp"
+#include "../Tests.h"
+#include "../../Shared/DataStructures/LinkedList.h"
+#include "../../Shared/DataStructures/BinaryTree.h"
 
-void getDepthsImpl(BinaryTree::Node* n, int depth, std::vector<LinkedList>& out)
+DEF_TESTDATA(DepthData, BinaryTree, std::vector<LinkedList>);
+
+static void GetDepthsImpl(BinaryTree::Node* n, int depth, std::vector<LinkedList>& out)
 {
     if(!n)
+    {
         return;
+    }
     
     out[depth].Push(n->data);
     depth += 1;
     
-    getDepthsImpl(n->pLeft, depth, out);
-    getDepthsImpl(n->pRight, depth, out);
+    GetDepthsImpl(n->pLeft, depth, out);
+    GetDepthsImpl(n->pRight, depth, out);
 }
 
-DEF_TESTDATA(DepthData, BinaryTree, std::vector<LinkedList>);
-
-std::vector<LinkedList> getDepths(BinaryTree& bt)
+static std::vector<LinkedList> GetDepths(BinaryTree& bt)
 {
     std::vector<LinkedList> output;
     //probably not ideal to call height, could instead check if size greater than depth and push back
     output.resize(bt.Height());
-    getDepthsImpl(bt.GetRoot(), 0, output);
+    GetDepthsImpl(bt.GetRoot(), 0, output);
     return output;
 }
 
-int main()
+int Tests::Run_4_3()
 {
     const unsigned int kNumTestCases = 5;
     DepthData testCases[kNumTestCases] = {
@@ -40,5 +43,5 @@ int main()
         {{{{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}},6},                                     {{{1}},{{2}},{{3}},{{4}},{{5,8}},{{6,7,9,10}}}}
     };
     
-    testRunner::runTests<BinaryTree, std::vector<LinkedList>, kNumTestCases>(testCases, &getDepths);
+    return TestRunner::RunTestCases<BinaryTree, std::vector<LinkedList>, kNumTestCases>(testCases, &GetDepths);
 }

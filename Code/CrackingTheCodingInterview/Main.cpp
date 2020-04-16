@@ -15,6 +15,7 @@ int main()
     TestRunner::RegisterTest(std::make_pair(&Tests::Run_3_5, "3-5. Sort Stack"));
 
     // Trees and Graphs 
+    TestRunner::RegisterTest(std::make_pair(&Tests::Run_4_3, "4-3. List of Depths"));
 
     // Bit Manipulation
 
