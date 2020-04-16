@@ -5,3 +5,4 @@ Code/.vs/*
 Code/*/x64/*
 *.ilk
 *.pdb
+Code/x64/*

@@ -1,10 +1,10 @@
-#include "../Shared/Testing/TestRunner.hpp"
-
-#include "1-ArraysAndStrings/1-1.hpp"
+#include "Tests.h"
+#include "../Shared/Testing/TestRunner.h"
 
 int main()
 {
-    testRunner::RegisterTest(std::make_pair(&IsUnique_1_1, "Is Unique 1-1"));
+    TestRunner::RegisterTest(std::make_pair(&Tests::Run_1_1, "1-1. Is Unique"));
+    TestRunner::RegisterTest(std::make_pair(&Tests::Run_1_5, "1-5. Is Unique"));
 
-    testRunner::RunAllTests();
+    TestRunner::RunAllTests();
 }

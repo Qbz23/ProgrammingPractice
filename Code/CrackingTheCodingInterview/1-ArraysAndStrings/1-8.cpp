@@ -104,6 +104,6 @@ int main()
                                  {0, 8, 9, 8, 7}}}                          
     };
     
-    testRunner::runTests<Matrix, Matrix, kNumTestCases>(testCases, &::zeroMatrix);
+    TestRunner::RunTestCases<Matrix, Matrix, kNumTestCases>(testCases, &::zeroMatrix);
 }
 

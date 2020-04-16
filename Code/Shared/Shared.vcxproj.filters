@@ -21,13 +21,16 @@
     <ClInclude Include="Testing\NoisyObject.hpp">
       <Filter>Testing</Filter>
     </ClInclude>
-    <ClInclude Include="Testing\TestRunner.hpp">
-      <Filter>Testing</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DataStructures\BinaryTreeTester.cpp">
       <Filter>DataStructures</Filter>
+    </ClCompile>
+    <ClCompile Include="Testing\TestRunner.h">
+      <Filter>Testing</Filter>
+    </ClCompile>
+    <ClCompile Include="Testing\TestRunner.cpp">
+      <Filter>Testing</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

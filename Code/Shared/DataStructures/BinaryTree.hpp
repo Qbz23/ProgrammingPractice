@@ -1,8 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
+#include <string>
 
-class BinaryTree    
+class BinaryTree  
 {
     public:
         enum Traversal
