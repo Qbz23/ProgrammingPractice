@@ -10,6 +10,7 @@ namespace TestRunner
 {
     extern void RegisterTest(int(*pTestFx)(), std::string testName);
     extern int RunAllTests();
+    extern int RunTest(std::string testCode);
 
     template<typename ParamType, typename ReturnType>
     struct TestData
