@@ -43,5 +43,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Tests.h" />
+    <ClInclude Include="LogFlags.h" />
   </ItemGroup>
 </Project>

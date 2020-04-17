@@ -3,9 +3,8 @@
 #include <iostream>
 #include <vector>
 #include <string>
-
-// todo log verbose functio ninstead compile to noop if verbose not defined, 1 ifdef
-#define VERBOSE
+#include <sstream>
+#include "..\Logging\Logging.h"
 
 namespace TestRunner
 {
@@ -32,16 +31,16 @@ namespace TestRunner
             if(result != td.expectedOutput)
             {   
                 failed += 1;
-#ifdef VERBOSE
-                std::cout << "Failed case " << i << ". Expected " <<
+                std::stringstream failSS;
+                failSS << "Failed case " << std::to_string(i) << ". Expected " <<
                     td.expectedOutput << " but got " << result << std::endl;
-#endif // VERBOSE
+                Log::If(Log::bLogTestCases, failSS.str());
             }
         }
 
-#ifdef VERBOSE
-        std::cout << "Passed " << numTests - failed << " / " << numTests << " test cases." << std::endl;
-#endif // VERBOSE
+        std::string resultStr = "Passed " + std::to_string(numTests - failed) + 
+            " / " + std::to_string(numTests) + " test cases.\n";
+        Log::If(Log::bLogTestCasesVerbose, resultStr);
         return failed;
     }
 }

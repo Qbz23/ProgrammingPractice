@@ -1,4 +1,5 @@
 #include "TestRunner.h"
+#include "../Logging/Logging.h"
 
 static std::vector<std::pair<int(*)(), std::string>> m_Tests;
 void TestRunner::RegisterTest(int(*pTestFx)() , std::string testName)
@@ -11,27 +12,24 @@ int TestRunner::RunAllTests()
     int numPassed = 0;
     for (auto it = m_Tests.begin(); it != m_Tests.end(); ++it)
     {
-#ifdef VERBOSE 
-        std::cout << it->second << std::endl;
-#endif 
+        Log::If(Log::bLogTests, it->second + "\n");
 
         int failedCases = it->first();
         if (failedCases > 0)
         {
-            std::cout << it->second << ": Failed " << std::to_string(failedCases) 
-                << " Cases." << std::endl << std::endl;
+            std::string errStr = it->second + ": Failed " + std::to_string(failedCases) + " Cases.\n\n";
+            Log::If(Log::bLogTests, errStr);
         }
-#ifdef VERBOSE
         else
         {
-            std::cout << it->second << ": Passed All Cases." << std::endl << std::endl;
+            Log::If(Log::bLogTestsVerbose, it->second + ": Passed All Cases.\n\n");
             numPassed += 1;
         }
-#endif
     }
 
-    std::cout << "Passed " + std::to_string(numPassed) << " / " <<
-        std::to_string(m_Tests.size()) << " Tests." << std::endl;
+    std::string testResultStr = "Passed " + std::to_string(numPassed) + 
+        " / " + std::to_string(m_Tests.size()) + " Tests.\n";
+    Log::If(Log::bLogTests, testResultStr);
 
     return (int)m_Tests.size() - numPassed;
 }

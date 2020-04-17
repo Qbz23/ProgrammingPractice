@@ -7,17 +7,25 @@
     <Filter Include="Testing">
       <UniqueIdentifier>{f2545557-a652-4fcc-b962-8e23074d1744}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Logging">
+      <UniqueIdentifier>{ba979504-4853-440f-b591-b18ceb032ba0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Testing\NoisyObject.hpp">
       <Filter>Testing</Filter>
     </ClInclude>
-    <ClInclude Include="DataStructures\LinkedList.h" />
     <ClInclude Include="DataStructures\Stack.h">
       <Filter>DataStructures</Filter>
     </ClInclude>
     <ClInclude Include="DataStructures\BinaryTree.h">
       <Filter>DataStructures</Filter>
+    </ClInclude>
+    <ClInclude Include="DataStructures\LinkedList.h">
+      <Filter>DataStructures</Filter>
+    </ClInclude>
+    <ClInclude Include="Logging\Logging.h">
+      <Filter>Logging</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -35,6 +43,9 @@
     </ClCompile>
     <ClCompile Include="DataStructures\BinaryTree.cpp">
       <Filter>DataStructures</Filter>
+    </ClCompile>
+    <ClCompile Include="Logging\Logging.cpp">
+      <Filter>Logging</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
