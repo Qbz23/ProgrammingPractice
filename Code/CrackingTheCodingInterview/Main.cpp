@@ -3,12 +3,17 @@
 #include "../Shared/Logging/Logging.h"
 
 // Todo 
-//  Make other project for other exes, emplacetest and bracematch
+//  emplacetest 
 //  Fix noisy object to report counts rather than printing, print in verbose
 //  Clean up includes
 
 int main(int argC, char** argV)
 {
+    // TODO move cmdline handle to shared since 
+    // testcode is assumed in the shared testrunner
+    // Fix up this as well so it works like /name: and you can just regex
+    // Can remove testcodes and just store name but still include testcodes 
+    // at the beginning of names for organization and easier selection if you want 
     bool bRunAllTests = true;
     std::string testCode = "";
     if(argC > 1)
