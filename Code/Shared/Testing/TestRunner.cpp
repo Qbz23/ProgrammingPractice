@@ -1,43 +1,28 @@
 #include "TestRunner.h"
 #include "../Logging/Logging.h"
 #include <unordered_map>
-
-typedef std::pair<std::string, int(*)()> TestPair;
-
-static std::string GetTestCode(std::string testFullName)
-{
-    int dotIndex = (int)testFullName.find(".");
-    if(dotIndex == -1) 
-    {   
-        Log::Debug("Invalid testname " + testFullName + " passed to GetTestCode()\n");
-        return "";
-    }
-    else 
-    {
-        return testFullName.substr(0, dotIndex);
-    }
-}
+#include "../Util/StringUtil.h"
 
 // index by number code ( like 1-1 ), store pair of function and testname
-static std::unordered_map<std::string, TestPair> m_Tests;
+static std::unordered_map<std::string, int(*)()> m_Tests;
 void TestRunner::RegisterTest(int(*pTestFx)(), std::string testName)
 {
-    m_Tests[GetTestCode(testName)] = std::make_pair(testName, pTestFx);
+    m_Tests[testName] = pTestFx;
 }
 
-static int RunTestImpl(TestPair* pTp)
+static int RunTestImpl(int(*pTestFx)(), std::string testName)
 {
-    Log::If(Log::bLogTests, pTp->first + "\n");
+    Log::If(Log::bLogTests, testName + "\n");
 
-    int failedCases = pTp->second();;
+    int failedCases = pTestFx();;
     if (failedCases > 0)
     {
-        std::string errStr = pTp->first + ": Failed " + std::to_string(failedCases) + " Case.\n\n";
+        std::string errStr = testName + ": Failed " + std::to_string(failedCases) + " Case(s).\n\n";
         Log::If(Log::bLogTests, errStr);
     }
     else
     {
-        Log::If(Log::bLogTestsVerbose, pTp->first + ": Passed All Cases.\n\n");
+        Log::If(Log::bLogTestsVerbose, testName + ": Passed All Case(s).\n\n");
     }
 
     return failedCases;
@@ -48,7 +33,7 @@ int TestRunner::RunAllTests()
     int numPassed = 0;
     for (auto it = m_Tests.begin(); it != m_Tests.end(); ++it)
     {
-        numPassed += RunTestImpl(&(it->second)) == 0;
+        numPassed += RunTestImpl(it->second, it->first) == 0;
     }
 
     std::string testResultStr = "Passed " + std::to_string(numPassed) + 
@@ -58,25 +43,35 @@ int TestRunner::RunAllTests()
     return (int)m_Tests.size() - numPassed;
 }
 
-int TestRunner::RunTest(std::string testCode)
+int TestRunner::RunTests(std::string testNameExpression)
 {
-    auto testIt = m_Tests.find(testCode);
-    if(testIt == m_Tests.end())
+    int numPassed = 0;
+    int numRun = 0;
+    for(auto it = m_Tests.begin(); it != m_Tests.end(); ++it)
     {
-        Log::Always("Failed to find test case with code " + testCode + "\n");
-        Log::Debug("Registered Tests:\n");
-        for(auto it = m_Tests.begin(); it != m_Tests.end(); ++it)
+        if(Util::String::WildcardMatch(testNameExpression, it->first))
         {
-            std::string testName = it->second.first;
-            std::string testCode = it->first;
-            Log::Debug("\t" + testName + " [" + testCode + "]\n");
+            numPassed += RunTestImpl(it->second, it->first) == 0;
+            numRun += 1;
         }
+    }
 
-        return -1;
+    if(numRun == 0)
+    {
+        Log::Always("Failed to find test case from expression " + testNameExpression + "\n");
+        Log::Debug("Registered Tests:\n");
+        for (auto it = m_Tests.begin(); it != m_Tests.end(); ++it)
+        {
+            Log::Debug("\t" + it->first + "\n");
+        }
     }
     else 
     {
-        return RunTestImpl(&(testIt->second));
+        std::string testResultStr = "Passed " + std::to_string(numPassed) +
+            " / " + std::to_string(numRun) + " Tests.\n";
+        Log::If(Log::bLogTests, testResultStr);
     }
+
+    return numRun - numPassed;
 }
 

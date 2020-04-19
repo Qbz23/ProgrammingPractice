@@ -10,6 +10,9 @@
     <Filter Include="Logging">
       <UniqueIdentifier>{ba979504-4853-440f-b591-b18ceb032ba0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Util">
+      <UniqueIdentifier>{f77bae54-eb1a-4120-b091-92a6e6ba1850}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Testing\NoisyObject.hpp">
@@ -26,6 +29,9 @@
     </ClInclude>
     <ClInclude Include="Logging\Logging.h">
       <Filter>Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\StringUtil.h">
+      <Filter>Util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -46,6 +52,9 @@
     </ClCompile>
     <ClCompile Include="Logging\Logging.cpp">
       <Filter>Logging</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\StringUtil.cpp">
+      <Filter>Util</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

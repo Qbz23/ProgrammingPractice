@@ -70,11 +70,11 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(SolutionDir)$bin(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)\bin\$(Configuration)\</OutDir>
     <IntDir>obj\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)$bin(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)\bin\$(Configuration)\</OutDir>
     <IntDir>obj\$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -137,6 +137,8 @@
   <ItemGroup>
     <ClCompile Include="BraceMatch.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="UtilTests\TokenizeTest.cpp" />
+    <ClCompile Include="UtilTests\WildcardMatchTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Tests.h" />
