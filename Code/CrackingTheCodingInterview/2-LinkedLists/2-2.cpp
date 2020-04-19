@@ -3,7 +3,7 @@
 // find the kth to last item in a singly linked list 
 
 #include "../../Shared/Testing/TestRunner.h"
-#include "../Tests.h"
+#include "../CrackingTheCodingInterview.h"
 #include "../../Shared/DataStructures/LinkedList.h"
 
 struct KToLastTestParam
@@ -39,7 +39,7 @@ static int kToLast(KToLastTestParam& p)
     return result;
 }
 
-int Tests::Run_2_2()
+int Cci::Run_2_2()
 {
     const unsigned int kNumTestCases = 4; 
 

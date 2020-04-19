@@ -1,7 +1,7 @@
 // 5-6 Conversion - pg 116
 // Write a function to determine the number of bits that must be flipped to convert int a to b 
 
-#include "../Tests.h"
+#include "../CrackingTheCodingInterview.h"
 #include "../../Shared/Testing/TestRunner.h"
 
 struct ConversionTestParam
@@ -13,7 +13,7 @@ struct ConversionTestParam
 DEF_TESTDATA(ConversionData, ConversionTestParam, int);
 
 //Could be better, probably better to find next highest power of 2 and start from that num of bits
-int Conversion(ConversionTestParam& p)
+static int Conversion(ConversionTestParam& p)
 {
     int numBits = 4 * sizeof(p.a);
     int checkBits = p.a ^ p.b;
@@ -30,7 +30,7 @@ int Conversion(ConversionTestParam& p)
     return numFlips;
 }
 
-int Tests::Run_5_6()
+int Cci::Run_5_6()
 {
     const unsigned int kNumTestCases = 8; 
     ConversionData testCases[kNumTestCases] = {

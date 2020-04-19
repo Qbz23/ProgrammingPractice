@@ -6,7 +6,7 @@
 #include "../OtherTestsLogFlags.h"
 
 template <typename T> 
-void VectorTest(std::string title)
+static void VectorTest(std::string title)
 {  
     Log::If(OtherTestsLogFlags::bLogExperiments, title);
     Log::If(OtherTestsLogFlags::bLogExperiments, "Constructing local: ");
@@ -33,7 +33,7 @@ void VectorTest(std::string title)
 }
 
 template <typename T>
-void MapTest(std::string title)
+static void MapTest(std::string title)
 {
     Log::If(OtherTestsLogFlags::bLogExperiments, title);
     Log::If(OtherTestsLogFlags::bLogExperiments, "Constructing local: ");  T obj;

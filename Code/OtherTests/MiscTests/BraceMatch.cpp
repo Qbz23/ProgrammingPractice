@@ -6,7 +6,7 @@
 
 DEF_TESTDATA(BracesValidData, std::string, bool)
 
-bool BracesValid(std::string& braceStr)
+static bool BracesValid(std::string& braceStr)
 {
   Stack braces = Stack(std::vector<int>()); 
   for(auto it = braceStr.begin(); it != braceStr.end(); ++it)

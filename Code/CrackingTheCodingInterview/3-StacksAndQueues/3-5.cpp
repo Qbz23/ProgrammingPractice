@@ -5,7 +5,7 @@
 // stack can push pop peek and isEmpty. top == peek  
 
 #include "../../Shared/Testing/TestRunner.h"
-#include "../Tests.h"
+#include "../CrackingTheCodingInterview.h"
 #include "../../Shared/DataStructures/Stack.h"
 
 DEF_TESTDATA(SortStackData, Stack, Stack);
@@ -50,7 +50,7 @@ static Stack SortStack(Stack& inputStack)
     return outputStack;
 }
 
-int Tests::Run_3_5()
+int Cci::Run_3_5()
 {
     const unsigned int kNumTestCases = 5; 
     SortStackData testCases[kNumTestCases] = {

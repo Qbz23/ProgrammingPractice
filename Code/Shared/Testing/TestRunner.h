@@ -64,4 +64,3 @@ std::ostream& operator<<(std::ostream& os, std::vector<r> td)
 { \
     name(inputType p, outputType r) : TestData(p, r) {} \
 }; 
-    

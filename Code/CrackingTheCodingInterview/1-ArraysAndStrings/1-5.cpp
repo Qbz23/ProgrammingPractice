@@ -4,7 +4,7 @@
 // check if a is one or zero edits away from b 
 
 #include "../../Shared/Testing/TestRunner.h"
-#include "../Tests.h"
+#include "../CrackingTheCodingInterview.h"
 #include <string>
 #include <math.h>
 
@@ -87,7 +87,7 @@ static bool OneAway(OneAwayTestParam& p)
     }
 }
 
-int Tests::Run_1_5()
+int Cci::Run_1_5()
 {
     const unsigned int kNumTestCases = 10;
     OneAwayData testCases[kNumTestCases] = { 

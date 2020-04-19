@@ -30,7 +30,7 @@ namespace Util
                 if(!wildcardStr.empty())
                 {
                     // Only expect this to be only wildcards
-                    if(!wildcardStr[0] == '*')
+                    if(!(wildcardStr[0] == '*'))
                     {
                         Log::Debug("Hit unexpected case in WildcardMatch.\nWildcardStr: "  +
                                    wildcardStr + ", OtherStr: " + otherStr);

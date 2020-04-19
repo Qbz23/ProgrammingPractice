@@ -3,7 +3,7 @@
 // D linked lists for a tree with depth D 
 
 #include "../../Shared/Testing/TestRunner.h"
-#include "../Tests.h"
+#include "../CrackingTheCodingInterview.h"
 #include "../../Shared/DataStructures/LinkedList.h"
 #include "../../Shared/DataStructures/BinaryTree.h"
 
@@ -32,7 +32,7 @@ static std::vector<LinkedList> GetDepths(BinaryTree& bt)
     return output;
 }
 
-int Tests::Run_4_3()
+int Cci::Run_4_3()
 {
     const unsigned int kNumTestCases = 5;
     DepthData testCases[kNumTestCases] = {

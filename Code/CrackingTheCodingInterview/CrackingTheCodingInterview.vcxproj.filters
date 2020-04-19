@@ -42,7 +42,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Tests.h" />
-    <ClInclude Include="LogFlags.h" />
+    <ClInclude Include="CrackingTheCodingInterview.h" />
   </ItemGroup>
 </Project>

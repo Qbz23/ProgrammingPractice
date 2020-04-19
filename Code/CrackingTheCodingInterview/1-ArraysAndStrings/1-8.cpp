@@ -10,7 +10,7 @@
 // matrix[0] = [1, 2, 3 4]
 // therefore i = row and j = col 
 #include "../../Shared/Testing/TestRunner.h"
-#include "../Tests.h"
+#include "../CrackingTheCodingInterview.h"
 #include <vector>
 
 typedef std::vector<std::vector<int>> Matrix;
@@ -68,7 +68,7 @@ static Matrix zeroMatrix(Matrix& matrix)
     return out; 
 }
 
-int Tests::Run_1_8()
+int Cci::Run_1_8()
 {
     const unsigned int kNumTestCases = 6;
     ZeroMatrixData testCases[kNumTestCases] = { 

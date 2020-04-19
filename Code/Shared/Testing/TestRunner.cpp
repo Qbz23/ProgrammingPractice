@@ -74,4 +74,3 @@ int TestRunner::RunTests(std::string testNameExpression)
 
     return numRun - numPassed;
 }
-

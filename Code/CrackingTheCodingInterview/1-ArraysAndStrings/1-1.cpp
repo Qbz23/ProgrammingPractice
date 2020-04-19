@@ -4,14 +4,14 @@
 // How to solve if no extra data?
 
 #include "../../Shared/Testing/TestRunner.h"
-#include "../Tests.h"
+#include "../CrackingTheCodingInterview.h"
 #include <string>
 #include <iostream>
 
  DEF_TESTDATA(IsUniqueData, std::string, bool) 
 
 // O(n)
-bool IsUnique(std::string& s)
+static bool IsUnique(std::string& s)
 {
     const unsigned int kNumAscii = 256;
     bool charFound[kNumAscii] = { false };  
@@ -31,7 +31,7 @@ bool IsUnique(std::string& s)
 }
 
 // O(n^2)
-bool IsUniqueNoAdditionalData(std::string& s)
+static bool IsUniqueNoAdditionalData(std::string& s)
 {
     for(size_t i = 0; i < s.length(); ++i)
     {
@@ -48,7 +48,7 @@ bool IsUniqueNoAdditionalData(std::string& s)
 }
 
 
-int Tests::Run_1_1()
+int Cci::Run_1_1()
 {
     const unsigned int kNumTestCases = 5;
     IsUniqueData testCases[kNumTestCases] = {
