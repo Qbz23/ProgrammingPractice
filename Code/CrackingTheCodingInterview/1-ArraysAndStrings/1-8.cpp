@@ -9,13 +9,15 @@
 // 
 // matrix[0] = [1, 2, 3 4]
 // therefore i = row and j = col 
-#include "../../Shared/Testing/TestRunner.hpp"
+#include "../../Shared/Testing/TestRunner.h"
+#include "../CrackingTheCodingInterview.h"
 #include <vector>
 
 typedef std::vector<std::vector<int>> Matrix;
+
 DEF_TESTDATA(ZeroMatrixData, Matrix, Matrix);
 
-Matrix zeroMatrix(Matrix& matrix)    
+static Matrix zeroMatrix(Matrix& matrix)    
 {
     // Init out matrix 
     std::vector<std::vector<int>> out(matrix.size());
@@ -66,7 +68,7 @@ Matrix zeroMatrix(Matrix& matrix)
     return out; 
 }
 
-int main()
+int Cci::Run_1_8()
 {
     const unsigned int kNumTestCases = 6;
     ZeroMatrixData testCases[kNumTestCases] = { 
@@ -104,6 +106,6 @@ int main()
                                  {0, 8, 9, 8, 7}}}                          
     };
     
-    testRunner::runTests<Matrix, Matrix, kNumTestCases>(testCases, &::zeroMatrix);
+    return TestRunner::RunTestCases<Matrix, Matrix, kNumTestCases>(testCases, &zeroMatrix);
 }
 

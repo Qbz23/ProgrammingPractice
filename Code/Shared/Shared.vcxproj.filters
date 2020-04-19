@@ -7,27 +7,57 @@
     <Filter Include="Testing">
       <UniqueIdentifier>{f2545557-a652-4fcc-b962-8e23074d1744}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Logging">
+      <UniqueIdentifier>{ba979504-4853-440f-b591-b18ceb032ba0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Util">
+      <UniqueIdentifier>{f77bae54-eb1a-4120-b091-92a6e6ba1850}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DataStructures\BinaryTree.hpp">
+    <ClInclude Include="DataStructures\Stack.h">
       <Filter>DataStructures</Filter>
     </ClInclude>
-    <ClInclude Include="DataStructures\LinkedList.hpp">
+    <ClInclude Include="DataStructures\BinaryTree.h">
       <Filter>DataStructures</Filter>
     </ClInclude>
-    <ClInclude Include="DataStructures\Stack.hpp">
+    <ClInclude Include="DataStructures\LinkedList.h">
       <Filter>DataStructures</Filter>
     </ClInclude>
-    <ClInclude Include="Testing\NoisyObject.hpp">
-      <Filter>Testing</Filter>
+    <ClInclude Include="Logging\Logging.h">
+      <Filter>Logging</Filter>
     </ClInclude>
-    <ClInclude Include="Testing\TestRunner.hpp">
+    <ClInclude Include="Util\StringUtil.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Testing\NoisyObject.h">
       <Filter>Testing</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DataStructures\BinaryTreeTester.cpp">
+    <ClCompile Include="Testing\TestRunner.h">
+      <Filter>Testing</Filter>
+    </ClCompile>
+    <ClCompile Include="Testing\TestRunner.cpp">
+      <Filter>Testing</Filter>
+    </ClCompile>
+    <ClCompile Include="DataStructures\LinkedList.cpp">
       <Filter>DataStructures</Filter>
+    </ClCompile>
+    <ClCompile Include="DataStructures\Stack.cpp">
+      <Filter>DataStructures</Filter>
+    </ClCompile>
+    <ClCompile Include="DataStructures\BinaryTree.cpp">
+      <Filter>DataStructures</Filter>
+    </ClCompile>
+    <ClCompile Include="Logging\Logging.cpp">
+      <Filter>Logging</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\StringUtil.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Testing\NoisyObject.cpp">
+      <Filter>Testing</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

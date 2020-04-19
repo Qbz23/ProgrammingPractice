@@ -1,6 +1,14 @@
-#include "BinaryTree.hpp"
+#include "../../Shared/DataStructures/BinaryTree.h"
+#include "../OtherTests.h"
+#include "../OtherTestsLogFlags.h"
+#include "../../Shared/Logging/Logging.h"
+#include <sstream>
 
-int main()
+//
+// Will have a better more general system for testing data structures in the future 
+// This isn't really a test as-is
+
+int OtherTests::BinaryTreeConstruct()
 {
     const uint32_t kNumTestTrees = 9;
     
@@ -20,8 +28,10 @@ int main()
     
     for(uint32_t i = 0; i < kNumTestTrees; ++i)
     {
-        std::cout << std::to_string(i) << ": " << trees[i] << std::endl;
+        std::stringstream ss;
+        ss << trees[i];
+        Log::If(OtherTestsLogFlags::bLogDataStructureTestsVerbose, ss.str());
     }
-   
-   //Need to free trees? leaking dat memory. add an init to actually alloc. 
+
+    return 0;
 }

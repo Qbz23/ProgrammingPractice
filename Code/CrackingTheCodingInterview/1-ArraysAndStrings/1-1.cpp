@@ -3,14 +3,15 @@
 // determine if string has all unique characters
 // How to solve if no extra data?
 
-#include "../../Shared/Testing/TestRunner.hpp"
+#include "../../Shared/Testing/TestRunner.h"
+#include "../CrackingTheCodingInterview.h"
 #include <string>
 #include <iostream>
 
-DEF_TESTDATA(IsUniqueData, std::string, bool) 
+ DEF_TESTDATA(IsUniqueData, std::string, bool) 
 
 // O(n)
-bool isUnique(std::string& s)
+static bool IsUnique(std::string& s)
 {
     const unsigned int kNumAscii = 256;
     bool charFound[kNumAscii] = { false };  
@@ -30,7 +31,7 @@ bool isUnique(std::string& s)
 }
 
 // O(n^2)
-bool isUniqueNoAdditionalData(std::string& s)
+static bool IsUniqueNoAdditionalData(std::string& s)
 {
     for(size_t i = 0; i < s.length(); ++i)
     {
@@ -46,7 +47,8 @@ bool isUniqueNoAdditionalData(std::string& s)
     return true;
 }
 
-int IsUnique_1_1()
+
+int Cci::Run_1_1()
 {
     const unsigned int kNumTestCases = 5;
     IsUniqueData testCases[kNumTestCases] = {
@@ -58,9 +60,10 @@ int IsUnique_1_1()
     
     int failedCases = 0;
     // Basic
-    failedCases += testRunner::runTests<std::string, bool, kNumTestCases>(testCases, &isUnique);
+    failedCases += TestRunner::RunTestCases<std::string, bool, kNumTestCases>(testCases, &IsUnique);
     // No additional data
-    failedCases += testRunner::runTests<std::string, bool, kNumTestCases>(testCases, &isUniqueNoAdditionalData);
+    failedCases += TestRunner::RunTestCases<std::string, bool, kNumTestCases>(testCases, &IsUniqueNoAdditionalData);
 
     return failedCases;
 }
+

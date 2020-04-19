@@ -1,9 +1,12 @@
 // Given a set of braces, determine whether or not theyre evenly matched 
 
-#include "../Shared/TestRunner.hpp"
-#include "../Shared/DataStructures/Stack.hpp"
+#include "../../Shared/Testing/TestRunner.h"
+#include "../../Shared/DataStructures/Stack.h"
+#include "../OtherTests.h"
 
-bool bracesValid(std::string& braceStr)
+DEF_TESTDATA(BracesValidData, std::string, bool)
+
+static bool BracesValid(std::string& braceStr)
 {
   Stack braces = Stack(std::vector<int>()); 
   for(auto it = braceStr.begin(); it != braceStr.end(); ++it)
@@ -53,9 +56,7 @@ bool bracesValid(std::string& braceStr)
   return braces.Empty();
 }
 
-DEF_TESTDATA(BracesValidData, std::string, bool)
-
-int main()
+int OtherTests::BraceMatch()
 {
   const unsigned int kNumTestCases = 5;
   BracesValidData testCases[kNumTestCases] = {
@@ -66,5 +67,5 @@ int main()
     {"({[]}({[]})",         false},
   };
   
-  testRunner::runTests<std::string, bool, kNumTestCases>(testCases, &bracesValid); 
+  return TestRunner::RunTestCases<std::string, bool, kNumTestCases>(testCases, &BracesValid); 
 }

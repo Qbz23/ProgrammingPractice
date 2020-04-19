@@ -2,23 +2,24 @@
 
 // find the kth to last item in a singly linked list 
 
-#include "../../Shared/Testing/TestRunner.hpp"
-#include "../../Shared/DataStructures/LinkedList.hpp"
+#include "../../Shared/Testing/TestRunner.h"
+#include "../CrackingTheCodingInterview.h"
+#include "../../Shared/DataStructures/LinkedList.h"
 
-struct TestParam
+struct KToLastTestParam
 {
-    TestParam(std::vector<int> linkedListData, int _k) : l(linkedListData), k(_k) {}
+    KToLastTestParam(std::vector<int> linkedListData, int _k) : l(linkedListData), k(_k) {}
     LinkedList l;
     int k;
 };
 
-DEF_TESTDATA(KToLastData, TestParam, int)
+DEF_TESTDATA(KToLastData, KToLastTestParam, int)
 
-//Assert k >= 1 (first to last means last) 
-//Also assumes length of linked list <= k
-//A better world wouldnt have alloc here but its not the end of the world, 
-//going after logic of the problems
-int kToLast(TestParam& p)
+// Assert k >= 1 (first to last means last) 
+// Also assumes length of linked list <= k
+// A better world wouldnt have alloc here but its not the end of the world, 
+// going after logic of the problems
+static int kToLast(KToLastTestParam& p)
 {
     LinkedList::Node* pCurrent = p.l.GetHead();
     int counter = 0;
@@ -38,14 +39,15 @@ int kToLast(TestParam& p)
     return result;
 }
 
-int main()
+int Cci::Run_2_2()
 {
     const unsigned int kNumTestCases = 4; 
+
     KToLastData testCases[kNumTestCases] = {
     {{{1, 2, 3, 4, 5, 6, 7, 8},                 1},     8},
     {{{1, 2, 3, 4, 5, 6, 7, 8},                 2},     7},
     {{{1, 2, 3, 4, 5, 6, 7, 8},                 4},     5},
     {{{9, 8, 4, 3, 2, 6, 1, 2, 9, 4, 6, 7, 12}, 6},     2}};
     
-    testRunner::runTests<TestParam, int, kNumTestCases>(testCases, &kToLast);
+    return TestRunner::RunTestCases<KToLastTestParam, int, kNumTestCases>(testCases, &kToLast);
 }

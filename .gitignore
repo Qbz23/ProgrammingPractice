@@ -1,7 +1,11 @@
 *.exe
 *.exe.stackdump
-Code/.vs/*
 *.vcxproj.user
-Code/*/x64/*
 *.ilk
 *.pdb
+Code/.vs/*
+Code/Lib/*
+Code/*/obj/*
+Code/*/bin/*
+
+

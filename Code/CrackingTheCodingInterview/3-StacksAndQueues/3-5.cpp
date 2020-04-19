@@ -4,10 +4,13 @@
 // Can use a temp stack but not a different data structure 
 // stack can push pop peek and isEmpty. top == peek  
 
-#include "../../Shared/Testing/TestRunner.hpp"
-#include "../../Shared/DataStructures/Stack.hpp"
+#include "../../Shared/Testing/TestRunner.h"
+#include "../CrackingTheCodingInterview.h"
+#include "../../Shared/DataStructures/Stack.h"
 
-Stack sortStack(Stack& inputStack)
+DEF_TESTDATA(SortStackData, Stack, Stack);
+
+static Stack SortStack(Stack& inputStack)
 {
     if(inputStack.Empty())
         return inputStack;
@@ -47,9 +50,7 @@ Stack sortStack(Stack& inputStack)
     return outputStack;
 }
 
-DEF_TESTDATA(SortStackData, Stack, Stack); 
-
-int main()
+int Cci::Run_3_5()
 {
     const unsigned int kNumTestCases = 5; 
     SortStackData testCases[kNumTestCases] = {
@@ -60,5 +61,5 @@ int main()
         {{{}},                          {{}}}};
         
         
-    testRunner::runTests<Stack, Stack, kNumTestCases>(testCases, &sortStack);
+    return TestRunner::RunTestCases<Stack, Stack, kNumTestCases>(testCases, &SortStack);
 }
