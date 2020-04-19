@@ -1,5 +1,5 @@
 #include "../../Shared/Testing/TestRunner.h"
-#include "../Tests.h"
+#include "../OtherTests.h"
 #include "../../Shared/Util/StringUtil.h"
 
 struct WildcardMatchInput
@@ -15,7 +15,7 @@ static bool RunWildcardMatch(WildcardMatchInput& wmi)
     return Util::String::WildcardMatch(wmi.wildcardStr, wmi.otherStr);
 }
 
-int Tests::WildcardMatch()
+int OtherTests::WildcardMatch()
 {
     const unsigned int kNumTestCases = 26;
     WildcardMatchTestData testCases[kNumTestCases] = {

@@ -1,5 +1,5 @@
 #include "../../Shared/Testing/TestRunner.h"
-#include "../Tests.h"
+#include "../OtherTests.h"
 #include "../../Shared/Util/StringUtil.h"
 
 struct TokenizeInput
@@ -15,7 +15,7 @@ static std::vector <std::string> RunTokenize(TokenizeInput& ti)
     return Util::String::Tokenize(ti.str, ti.delim);
 }
 
-int Tests::Tokenize()
+int OtherTests::Tokenize()
 {
     const unsigned int kNumTestCases = 5;
     TokenizeTestData testCases[kNumTestCases] = {

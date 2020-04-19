@@ -1,8 +1,8 @@
 // Given a set of braces, determine whether or not theyre evenly matched 
 
-#include "../Shared/Testing/TestRunner.h"
-#include "../Shared/DataStructures/Stack.h"
-#include "Tests.h"
+#include "../../Shared/Testing/TestRunner.h"
+#include "../../Shared/DataStructures/Stack.h"
+#include "../OtherTests.h"
 
 DEF_TESTDATA(BracesValidData, std::string, bool)
 
@@ -56,7 +56,7 @@ bool BracesValid(std::string& braceStr)
   return braces.Empty();
 }
 
-int Tests::BraceMatch()
+int OtherTests::BraceMatch()
 {
   const unsigned int kNumTestCases = 5;
   BracesValidData testCases[kNumTestCases] = {

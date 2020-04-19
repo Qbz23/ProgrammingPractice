@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="MiscTests">
+      <UniqueIdentifier>{5c66077d-f39d-433b-9537-dd6a8d8ecf12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DataStructureTests">
+      <UniqueIdentifier>{96381af7-61c3-45dc-a31f-1e8daa6825de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UtilTests">
+      <UniqueIdentifier>{184db02e-5436-40ca-b48a-6c26e2221e95}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MiscTests\BraceMatch.cpp">
+      <Filter>MiscTests</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilTests\TokenizeTest.cpp">
+      <Filter>UtilTests</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilTests\WildcardMatchTest.cpp">
+      <Filter>UtilTests</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="DataStructureTests\BinaryTreeTests.cpp">
+      <Filter>DataStructureTests</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="OtherTests.h" />
+    <ClInclude Include="OtherTestsLogFlags.h" />
+  </ItemGroup>
+</Project>

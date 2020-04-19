@@ -7,7 +7,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CrackingTheCodingInterview"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Shared", "Shared\Shared.vcxproj", "{377400CC-D054-44E6-872F-C3AD4171D90B}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OtherProblems", "OtherProblems\OtherProblems.vcxproj", "{64EC0A9C-7820-41FA-A886-8BB4A2FF7C8A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OtherTests", "OtherTests\OtherTests.vcxproj", "{64EC0A9C-7820-41FA-A886-8BB4A2FF7C8A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

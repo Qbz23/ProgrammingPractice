@@ -1,11 +1,14 @@
-#include "BinaryTree.hpp"
+#include "../../Shared/DataStructures/BinaryTree.h"
+#include "../OtherTests.h"
+#include "../OtherTestsLogFlags.h"
+#include "../../Shared/Logging/Logging.h"
+#include <sstream>
 
 //
 // Will have a better more general system for testing data structures in the future 
-// Doesn't really fit into new project organization as-is.
-//
+// This isn't really a test as-is
 
-int main()
+int OtherTests::BinaryTreeConstruct()
 {
     const uint32_t kNumTestTrees = 9;
     
@@ -25,6 +28,10 @@ int main()
     
     for(uint32_t i = 0; i < kNumTestTrees; ++i)
     {
-        std::cout << std::to_string(i) << ": " << trees[i] << std::endl;
+        std::stringstream ss;
+        ss << trees[i];
+        Log::If(OtherTestsLogFlags::LogDataStructureTestsVerbose, ss.str());
     }
+
+    return 0;
 }
