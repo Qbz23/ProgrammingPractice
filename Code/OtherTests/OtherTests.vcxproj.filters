@@ -10,6 +10,9 @@
     <Filter Include="UtilTests">
       <UniqueIdentifier>{184db02e-5436-40ca-b48a-6c26e2221e95}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Experiments">
+      <UniqueIdentifier>{4ce2e4bf-f581-4bd7-a689-18b849293607}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MiscTests\BraceMatch.cpp">
@@ -24,6 +27,9 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="DataStructureTests\BinaryTreeTests.cpp">
       <Filter>DataStructureTests</Filter>
+    </ClCompile>
+    <ClCompile Include="Experiments\EmplaceTest.cpp">
+      <Filter>Experiments</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

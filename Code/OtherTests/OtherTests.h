@@ -6,4 +6,5 @@ namespace OtherTests
     int Tokenize();
     int WildcardMatch();
     int BraceMatch();
+    int EmplaceTest();
 }

@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Testing\NoisyObject.hpp">
-      <Filter>Testing</Filter>
-    </ClInclude>
     <ClInclude Include="DataStructures\Stack.h">
       <Filter>DataStructures</Filter>
     </ClInclude>
@@ -32,6 +29,9 @@
     </ClInclude>
     <ClInclude Include="Util\StringUtil.h">
       <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Testing\NoisyObject.h">
+      <Filter>Testing</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -55,6 +55,9 @@
     </ClCompile>
     <ClCompile Include="Util\StringUtil.cpp">
       <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Testing\NoisyObject.cpp">
+      <Filter>Testing</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -2,11 +2,6 @@
 #include "../Shared/Testing/TestRunner.h"
 #include "../Shared/Logging/Logging.h"
 
-// Todo 
-//  emplacetest 
-//  Fix noisy object to report counts rather than printing, print in verbose
-//  Clean up includes
-
 int main(int argC, char** argV)
 {
     // TODO

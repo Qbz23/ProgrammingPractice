@@ -137,6 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DataStructureTests\BinaryTreeTests.cpp" />
+    <ClCompile Include="Experiments\EmplaceTest.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MiscTests\BraceMatch.cpp" />
     <ClCompile Include="UtilTests\TokenizeTest.cpp" />

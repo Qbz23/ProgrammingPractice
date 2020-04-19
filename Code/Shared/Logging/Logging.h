@@ -8,7 +8,8 @@ public:
     static const int bLogTestsVerbose      = 1 << 1;
     static const int bLogTestCases         = 1 << 2;
     static const int bLogTestCasesVerbose  = 1 << 3;
-    static const int NumReservedLogFlags   =      4;
+    static const int bLogNoisyObject       = 1 << 4;
+    static const int NumReservedLogFlags   =      5;
     static const int bSharedLogFlags = (1 << NumReservedLogFlags) - 1;
 
     static void Enable(int flag);

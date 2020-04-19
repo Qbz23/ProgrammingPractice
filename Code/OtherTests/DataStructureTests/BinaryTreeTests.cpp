@@ -30,7 +30,7 @@ int OtherTests::BinaryTreeConstruct()
     {
         std::stringstream ss;
         ss << trees[i];
-        Log::If(OtherTestsLogFlags::LogDataStructureTestsVerbose, ss.str());
+        Log::If(OtherTestsLogFlags::bLogDataStructureTestsVerbose, ss.str());
     }
 
     return 0;

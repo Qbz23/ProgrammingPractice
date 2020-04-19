@@ -21,6 +21,11 @@ int main(int argC, char** argV)
     // Misc Tests
     TestRunner::RegisterTest(&OtherTests::BraceMatch, "3-1. Brace Match");
 
+    //Log::Enable(Log::bLogNoisyObject);
+    //Log::Enable(OtherTestsLogFlags::bLogExperiments);
+    // Experiments 
+    TestRunner::RegisterTest(&OtherTests::EmplaceTest, "4-1 Emplace Test");
+
     if (argC > 1)
     {
         return TestRunner::RunTests(argV[1]);

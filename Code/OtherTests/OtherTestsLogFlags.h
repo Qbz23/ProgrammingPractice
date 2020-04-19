@@ -4,5 +4,6 @@
 
 namespace OtherTestsLogFlags
 {
-    static const int LogDataStructureTestsVerbose = 1 << (Log::NumReservedLogFlags + 1);
+    static const int bLogDataStructureTestsVerbose = 1 << (Log::NumReservedLogFlags + 1);
+    static const int bLogExperiments               = 1 << (Log::NumReservedLogFlags + 2);
 };
