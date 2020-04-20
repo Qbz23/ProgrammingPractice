@@ -4,13 +4,20 @@
 
 LinkedList::LinkedList(std::vector<int> data)
 {
-    mpHead = new Node(data[0]);
-    Node* pCurrent = mpHead;
-    for(int i = 1; i < data.size(); ++i)
+    if(data.empty())
     {
-        Node* pNew = new Node(data[i]);
-        pCurrent->pNext = pNew; 
-        pCurrent = pNew; 
+        mpHead = nullptr;
+    }
+    else 
+    {
+        mpHead = new Node(data[0]);
+        Node* pCurrent = mpHead;
+        for (int i = 1; i < data.size(); ++i)
+        {
+            Node* pNew = new Node(data[i]);
+            pCurrent->pNext = pNew;
+            pCurrent = pNew;
+        }
     }
 }
 
@@ -77,15 +84,22 @@ bool LinkedList::operator==(const LinkedList other) const
 void LinkedList::CopyImpl(const LinkedList& l)
 {
     const Node* lHead = l.GetHead();
-    const Node* pCurrent = lHead->pNext;
-    mpHead = new Node(lHead->data);
-    Node* pSelf = mpHead;
-    while (pCurrent != nullptr)
+    if(lHead)
     {
-        Node* newNode = new Node(pCurrent->data);
-        pCurrent = pCurrent->pNext;
-        pSelf->pNext = newNode;
-        pSelf = newNode;
+        const Node* pCurrent = lHead->pNext;
+        mpHead = new Node(lHead->data);
+        Node* pSelf = mpHead;
+        while (pCurrent != nullptr)
+        {
+            Node* newNode = new Node(pCurrent->data);
+            pCurrent = pCurrent->pNext;
+            pSelf->pNext = newNode;
+            pSelf = newNode;
+        }
+    }
+    else 
+    {
+        mpHead = nullptr;
     }
 }
 
