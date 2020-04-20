@@ -23,6 +23,9 @@
     <ClCompile Include="1-ArraysAndStrings\1-1.cpp">
       <Filter>1-ArraysAndStrings</Filter>
     </ClCompile>
+    <ClCompile Include="1-ArraysAndStrings\1-9.cpp">
+      <Filter>1-ArraysAndStrings</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="1-ArraysAndStrings">

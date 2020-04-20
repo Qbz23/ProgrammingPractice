@@ -16,6 +16,7 @@ int main(int argC, char** argV)
     TestRunner::RegisterTest(&Cci::Run_1_1, "1-1. Is Unique");
     TestRunner::RegisterTest(&Cci::Run_1_5, "1-5. One Away");
     TestRunner::RegisterTest(&Cci::Run_1_8, "1-8. Zero Matrix");
+    TestRunner::RegisterTest(&Cci::Run_1_9, "1-9. Is Rotation");
 
     // Linked Lists 
     TestRunner::RegisterTest(&Cci::Run_2_2, "2-2. Kth to Last");
