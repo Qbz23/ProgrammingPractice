@@ -29,6 +29,7 @@ int main(int argC, char** argV)
     TestRunner::RegisterTest(&Cci::Run_4_3, "4-3. List of Depths");
 
     // Bit Manipulation
+    TestRunner::RegisterTest(&Cci::Run_5_1, "5-1. Insertion");
     TestRunner::RegisterTest(&Cci::Run_5_6, "5-6. Bit Flip Conversion");
 
     if(argC > 1)
