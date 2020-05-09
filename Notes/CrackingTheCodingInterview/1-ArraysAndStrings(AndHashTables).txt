@@ -1,0 +1,62 @@
+Hash Tables 
+==
+Map keys to values for highly efficient lookup. 
+- Use hash function to turn a given key into an index 
+- Store objects in a linked list at the index associated with their key 
+- Linked list handles collisions, where multiple keys result in the same index 
+Worst case lookup runtime if hash is very bad and lots of collisions is O(N) 
+However, we typically good a good implementation that leads to O(1) lookup 
+You can implement a hash table as a Balanced Binary search tree as well
+- Still fundamentally finding objects based on a given key 
+- Worst case lookup is O(Log N) rather than O(N) 
+    
+Hash Table Collision Resolution 
+==
+Chaining with Linked Lists 
+- Most common approach 
+- Just add an item to the end of the linked list upon collision 
+- Very efficient as long as the number of collisions is small 
+- O(N) worst case lookup in the case of very strange keys and/or very poor hash function 
+Chaining with Binary Search Trees 
+- Same idea but with a BST rather than a linked list 
+- Worst case comes down to O(log n)
+- Rarely used unless extremely nonuniform distribution expected 
+Linked List vs BST Insertion 
+- Relevant in considering the above two chaining methods 
+- See StackOverflow https://bit.ly/3fBSQ0M
+Open Addressing with Linear Probing 
+- One object per bucket instead of multiple objects per bucket with chaining 
+- Move on to the next bucket upon collision 
+- Very fast and space efficient if the number of collisions is low 
+- Total entries in the table is limited by the size of the underlying array, not true with chaining
+- Can suffer from Clustering
+    - As areas get filled, future insertions are more likely to grow already filled areas 
+    - See StackOverflow https://bit.ly/2Lfmefr
+Quadratic Probing and Double Hashing 
+- Similar to above but increase probe distance quadratically or determine with a second hash 
+- Performance implications aren't simple 
+    - See IJSER Whitepaper https://bit.ly/2YNIDbS
+    
+ArrayList and Reiszable Arrays (Vector)
+==
+Array-like data structure that offers dynamic resizing 
+- Typical implementation doubles in size when it needs to grow 
+Why is the amortized insertion runtime O(1)?
+- You can work backwards and represent each size increase as requing some X amount of copies 
+- You only have to copy 1/2 of the elements of the new size each time 
+- This ends up being the Summation of N/2^x from x = 1 to N-1 if the array starts at size 1 
+    - Simplifies to: (1 - 2^(-N)) N
+    - Ex, N = 1024 : (1 - 2^(-1024))*1024 = 1023.99999999
+- Therefore, cost of inserting N elements is basically N, so the amortized cost is O(1)
+
+Rabin-Karp Substring Search 
+== 
+Consider the brute force way to search for substring S in larger string B 
+- With lengths Ls and Lb, this takes O(Ls(Lb-Ls)) time 
+- Searches  the first Lb - Ls + 1 characters in B. 
+- For each searcehd character, check if the next s characters match S 
+Rabin-Karp optimizes this by assuming if two strings are the same, they have the same hash 
+- The converse isn't true, two different strings can have the same hash 
+- Precompute a hash for each sequence of Ls characvters within B, can find locations of S in O(Lb) time 
+- Check each precomputed hash against the hash for S, then validate they match if hashes match 
+
