@@ -14,6 +14,7 @@ int main(int argC, char** argV)
 
     // Arrays and Strings
     TestRunner::RegisterTest(&Cci::Run_1_1, "1-1. Is Unique");
+    TestRunner::RegisterTest(&Cci::Run_1_2, "1-2. Check Palindrome");
     TestRunner::RegisterTest(&Cci::Run_1_5, "1-5. One Away");
     TestRunner::RegisterTest(&Cci::Run_1_8, "1-8. Zero Matrix");
     TestRunner::RegisterTest(&Cci::Run_1_9, "1-9. Is Rotation");
