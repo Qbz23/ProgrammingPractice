@@ -17,6 +17,7 @@ int main(int argC, char** argV)
     TestRunner::RegisterTest(&Cci::Run_1_2, "1-2. Check Palindrome");
     TestRunner::RegisterTest(&Cci::Run_1_3, "1-3. URLify");
     TestRunner::RegisterTest(&Cci::Run_1_5, "1-5. One Away");
+    TestRunner::RegisterTest(&Cci::Run_1_6, "1-6. String Compression");
     TestRunner::RegisterTest(&Cci::Run_1_8, "1-8. Zero Matrix");
     TestRunner::RegisterTest(&Cci::Run_1_9, "1-9. Is Rotation");
 

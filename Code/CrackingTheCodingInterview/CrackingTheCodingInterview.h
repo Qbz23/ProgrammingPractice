@@ -6,6 +6,7 @@ namespace Cci
     int Run_1_2();
     int Run_1_3();
     int Run_1_5();
+    int Run_1_6();
     int Run_1_8();
     int Run_1_9();
     int Run_2_2();
