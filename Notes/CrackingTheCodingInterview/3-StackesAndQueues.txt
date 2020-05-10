@@ -1,0 +1,15 @@
+Stack Notes 
+==
+Last In, First Out 
+Typically implements Pop, Push, Peek/Top, and IsEmpty 
+Often useful in recursive algorithms 
+- Push data onto the stack as you recurse 
+- Pop it off the stack as you backtrack 
+Can be used to implement recursive algorithms iteratively 
+
+Queue Notes 
+==
+First In, First Out
+Same typical methods as stack 
+Often used in breadth-first search or implementing a cache 
+
