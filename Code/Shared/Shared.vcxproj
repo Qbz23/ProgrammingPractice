@@ -103,7 +103,6 @@
     <ClInclude Include="Util\StringUtil.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DataStructures\Stack.cpp" />
     <ClCompile Include="Logging\Logging.cpp" />
     <ClCompile Include="Testing\TestRunner.cpp">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCpp</CompileAs>

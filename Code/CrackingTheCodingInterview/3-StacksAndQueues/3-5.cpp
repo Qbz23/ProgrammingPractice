@@ -8,9 +8,9 @@
 #include "../CrackingTheCodingInterview.h"
 #include "../../Shared/DataStructures/Stack.h"
 
-DEF_TESTDATA(SortStackData, Stack, Stack);
+DEF_TESTDATA(SortStackData, Stack<int>, Stack<int>);
 
-static Stack SortStack(Stack& inputStack)
+static Stack<int> SortStack(Stack<int>& inputStack)
 {
     if(inputStack.Empty())
         return inputStack;
@@ -23,7 +23,7 @@ static Stack SortStack(Stack& inputStack)
     //If pop'd is bigger, hold other in temp 
     //If pop'd is bigger than next, push temp to original stack and hold next other in temp 
     
-    Stack outputStack = Stack(std::vector<int>());
+    Stack<int> outputStack = Stack<int>(std::vector<int>());
     //Start by putting first in other
     outputStack.Push(inputStack.Pop());
     while(!inputStack.Empty())
@@ -61,5 +61,5 @@ int Cci::Run_3_5()
         {{{}},                          {{}}}};
         
         
-    return TestRunner::RunTestCases<Stack, Stack, kNumTestCases>(testCases, &SortStack);
+    return TestRunner::RunTestCases<Stack<int>, Stack<int>, kNumTestCases>(testCases, &SortStack);
 }

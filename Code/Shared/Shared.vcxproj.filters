@@ -44,9 +44,6 @@
     <ClCompile Include="DataStructures\LinkedList.cpp">
       <Filter>DataStructures</Filter>
     </ClCompile>
-    <ClCompile Include="DataStructures\Stack.cpp">
-      <Filter>DataStructures</Filter>
-    </ClCompile>
     <ClCompile Include="DataStructures\BinaryTree.cpp">
       <Filter>DataStructures</Filter>
     </ClCompile>

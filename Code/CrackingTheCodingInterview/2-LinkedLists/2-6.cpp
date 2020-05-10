@@ -53,7 +53,7 @@ static bool IsPalindrome(LinkedList& ll)
 //
 static bool IsPalindromeIterative(LinkedList& ll)
 {
-    Stack firstHalf({});
+    Stack<int> firstHalf;
     LinkedList::Node* pNode = ll.GetHead();
     // Advance by two nodes each time to determine when you've made 
     // it halfway through the list

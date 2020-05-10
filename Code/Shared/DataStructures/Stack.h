@@ -3,21 +3,59 @@
 #include <algorithm> //so I can reverse the vector so it is more intuitive to initialize
 #include <iostream>
 
-class Stack 
+template <typename T >
+class Stack
 {
-    public:
-        Stack(std::vector<int> d);
-        bool operator==(Stack other);
-        bool operator!=(Stack other);
-        
-        friend std::ostream& operator<<(std::ostream& os, Stack a);
+    public: 
+        // either child inits mStack or an empty stack is desired 
+        Stack() {}
+
+        Stack(std::vector<T> d)
+        {
+            std::reverse(d.begin(), d.end());
+            for (auto it = d.begin(); it != d.end(); ++it)
+            {
+                mStack.push(*it);
+            }
+        }
+
+        inline virtual bool operator==(Stack<T> other)
+        {
+            Stack<T> aCopy(*this);
+            Stack<T> bCopy(other);
+            while (!aCopy.Empty())
+            {
+                if (!(aCopy.Pop() == bCopy.Pop()))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        virtual bool operator!=(Stack<T> other)
+        {
+            return !(*this == other);
+        }
 
         //For the most part im always gonna want top when i pop
-        inline int Pop() { int val = mStack.top(); mStack.pop(); return val; }
-        inline void Push(int val) { mStack.push(val); }
-        inline int Top() { return mStack.top(); }
-        inline bool Empty() { return mStack.empty(); }
-        
-    private:
-        std::stack<int> mStack;
-};
+        virtual inline T Pop() { T val = mStack.top(); mStack.pop(); return val; }
+        virtual inline void Push(T val) { mStack.push(val); }
+        virtual inline T Top() const { return mStack.top(); }
+        virtual inline bool Empty() const { return mStack.empty(); }
+
+        friend std::ostream& operator<<(std::ostream& os, Stack<T> a)
+        {
+            Stack<T> copy(a);
+            while (!copy.Empty())
+            {
+                os << copy.Pop();
+            }
+
+            return os;
+        }
+
+    protected:
+        std::stack<T> mStack;
+};       
