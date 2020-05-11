@@ -151,6 +151,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="2-LinkedLists\2-6.cpp" />
+    <ClCompile Include="3-StacksAndQueues\3-1.cpp" />
     <ClCompile Include="3-StacksAndQueues\3-2.cpp" />
     <ClCompile Include="3-StacksAndQueues\3-5.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>

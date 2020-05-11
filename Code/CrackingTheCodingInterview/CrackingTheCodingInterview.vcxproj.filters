@@ -44,6 +44,9 @@
     <ClCompile Include="3-StacksAndQueues\3-2.cpp">
       <Filter>3-StacksAndQueues</Filter>
     </ClCompile>
+    <ClCompile Include="3-StacksAndQueues\3-1.cpp">
+      <Filter>3-StacksAndQueues</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="1-ArraysAndStrings">

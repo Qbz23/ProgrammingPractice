@@ -10,22 +10,31 @@ class Stack
         // either child inits mStack or an empty stack is desired 
         Stack() {}
 
-        Stack(std::vector<T> d)
+        Stack(std::vector<T> d, bool topToBot = true)
         {
-            std::reverse(d.begin(), d.end());
+            if(topToBot)
+            {
+                std::reverse(d.begin(), d.end());
+            }
+
             for (auto it = d.begin(); it != d.end(); ++it)
             {
                 mStack.push(*it);
             }
         }
 
-        inline virtual bool operator==(Stack<T> other)
+        virtual bool operator<(const Stack<T>& other) const
+        {
+            return !(*this == other);
+        }
+
+        virtual bool operator==(const Stack<T>& other) const
         {
             Stack<T> aCopy(*this);
             Stack<T> bCopy(other);
             while (!aCopy.Empty())
             {
-                if (!(aCopy.Pop() == bCopy.Pop()))
+                if (!bCopy.Empty() && !(aCopy.Pop() == bCopy.Pop()))
                 {
                     return false;
                 }
@@ -34,7 +43,7 @@ class Stack
             return true;
         }
 
-        virtual bool operator!=(Stack<T> other)
+        virtual bool operator!=(Stack<T> other) const
         {
             return !(*this == other);
         }

@@ -26,6 +26,7 @@ int main(int argC, char** argV)
     TestRunner::RegisterTest(&Cci::Run_2_6, "2-6. Is Palindrome");
 
     // Stacks and Queues 
+    TestRunner::RegisterTest(&Cci::Run_3_1, "3-1. Array Multi Stack");
     TestRunner::RegisterTest(&Cci::Run_3_2, "3-2. Stack Min");
     TestRunner::RegisterTest(&Cci::Run_3_5, "3-5. Sort Stack");
 
