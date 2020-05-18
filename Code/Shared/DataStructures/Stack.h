@@ -59,6 +59,7 @@ class Stack
         virtual inline void Push(T val) { mStack.push(val); }
         virtual inline T Top() const { return mStack.top(); }
         virtual inline bool Empty() const { return mStack.empty(); }
+        virtual inline size_t Size() const { return mStack.size(); }
 
         friend std::ostream& operator<<(std::ostream& os, Stack<T> a)
         {
