@@ -31,6 +31,7 @@ int main(int argC, char** argV)
     TestRunner::RegisterTest(&Cci::Run_3_3, "3-3. Stack of Plates");
     TestRunner::RegisterTest(&Cci::Run_3_4, "3-4. Queue via Stacks");
     TestRunner::RegisterTest(&Cci::Run_3_5, "3-5. Sort Stack");
+    TestRunner::RegisterTest(&Cci::Run_3_6, "3-6. Animal Shelter");
 
     // Trees and Graphs 
     TestRunner::RegisterTest(&Cci::Run_4_3, "4-3. List of Depths");

@@ -40,7 +40,7 @@
 //      Pop State 
 //          Pop is cheap, just pop off of extra stack 
 //          Push is expensive, need to copy back onto main stack 
-//          Calling 
+//          
 //
 
 class QueueViaStacks
@@ -118,7 +118,7 @@ class QueueViaStacks
         bool m_bOnMainStack;
 };
 
-DEF_TESTDATA(QueueViaStacksData, QueueViaStacks, std::vector<int>);
+DEF_TESTDATA(QueueViaStacksData, QueueViaStacks, bool);
 
 static bool ActualMatchesExpected(int actual, int expected, int counter)
 {
@@ -135,9 +135,9 @@ static bool ActualMatchesExpected(int actual, int expected, int counter)
     }
 }
 
-// Push and pop tons of random numbers, ending with the original stack 
-// but doing your best to expose any problems in push/pop
-// Use queues to ensure popped values are as expected
+// For queue based shuffles, can't really have the test of the final matches the input 
+// The initial values will be popped off first, this is the only test, pass or fail 
+// based on actual matching expected throughout this function
 static bool StressShuffle(QueueViaStacks& shuffleQueue)
 {
     srand((unsigned int)time(0)); // seed randomness
@@ -161,7 +161,7 @@ static bool StressShuffle(QueueViaStacks& shuffleQueue)
         }
         
         // Push and pop until pushes hit limit
-        while (pushCounter <= numActions)
+        while (pushCounter < numActions)
         {
             // If nothing to pop, just push 
             // If something to pop, 50/50 chance to push or pop 
@@ -209,29 +209,17 @@ static bool StressShuffle(QueueViaStacks& shuffleQueue)
     return true;
 }
 
-static std::vector<int>TestStack(QueueViaStacks& inputQueue)
-{
-    if(StressShuffle(inputQueue))
-    {
-        return inputQueue.GetData();
-    }
-    else 
-    {
-        // If it returns false, return empty vec to indicate failure
-        return std::vector<int>();
-    }
-}
 
 int Cci::Run_3_4()
 {
     const unsigned int kNumTestCases = 3;
     QueueViaStacksData testCases[kNumTestCases] = {
     //      input                      expected
-        {{{1, 2, 3}},                   {1, 2, 3}}, // Honestly stress shuffle is the real test
-        {{{}},                          {}}, 
-        {{{1, 2, 3, 4, 5, 6, 7, 8, 9}}, {1, 2, 3, 4, 5, 6, 7, 8, 9}}
+        {{{1, 2, 3}},                   true}, // Stress shuffle is the real test
+        {{{}},                          true},        
+        {{{1, 2, 3, 4, 5, 6, 7, 8, 9}}, true}
     };
 
-    return TestRunner::RunTestCases<QueueViaStacks, std::vector<int>, kNumTestCases>(testCases, &TestStack);
+    return TestRunner::RunTestCases<QueueViaStacks, bool, kNumTestCases>(testCases, &StressShuffle);
 }
 
