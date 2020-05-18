@@ -32,6 +32,12 @@ class Stack
         {
             Stack<T> aCopy(*this);
             Stack<T> bCopy(other);
+
+            if(aCopy.Size() != bCopy.Size())
+            {
+                return false;
+            }
+
             while (!aCopy.Empty())
             {
                 if (!bCopy.Empty() && !(aCopy.Pop() == bCopy.Pop()))

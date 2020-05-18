@@ -28,7 +28,7 @@ int main(int argC, char** argV)
     // Stacks and Queues 
     TestRunner::RegisterTest(&Cci::Run_3_1, "3-1. Array Multi Stack");
     TestRunner::RegisterTest(&Cci::Run_3_2, "3-2. Stack Min");
-    TestRunner::RegisterTest(&Cci::Run_3_2, "3-3. Stack of Plates");
+    TestRunner::RegisterTest(&Cci::Run_3_3, "3-3. Stack of Plates");
     TestRunner::RegisterTest(&Cci::Run_3_5, "3-5. Sort Stack");
 
     // Trees and Graphs 

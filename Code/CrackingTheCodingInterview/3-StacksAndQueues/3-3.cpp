@@ -44,22 +44,43 @@ class SetOfStacks
         }
 
         // for testing
-        std::vector<Stack<int>> GetStacks() const { return m_Stacks; }
+        std::vector<Stack<int>> GetStacks() const 
+        { 
+            std::vector<Stack<int>> output;
+            for(auto it = m_Stacks.begin(); it != m_Stacks.end(); ++it)
+            {
+                if(!it->Empty())
+                {
+                    output.push_back(*it);
+                }
+            }
+
+            // the top is the back of the vector, reverse out, because tester expects top->bot 
+            std::reverse(output.begin(), output.end()); 
+            return output;
+        }
+
         unsigned int GetSubstackCapacity() const { return m_SubstackCapacity; }
         bool Empty() const  { return m_Size != 0; }
 
         void Push(int val)
         {
-            unsigned int index = GetSubstackIndex();
-            m_Stacks[index].Push(val);
+            unsigned int index = GetSubstackIndex(true);
+            if(index < m_Stacks.size())
+            {
+                m_Stacks[index].Push(val);
+            }
+            else 
+            {
+                m_Stacks.push_back(Stack<int>({val}));
+            }
+            
             m_Size += 1;
         }
 
         int Pop()
         {
-            assert(!Empty());
-
-            unsigned int index = GetSubstackIndex();
+            unsigned int index = GetSubstackIndex(false);
             int val = m_Stacks[index].Pop();
             m_Size -= 1;
 
@@ -67,7 +88,21 @@ class SetOfStacks
         }
 
     private:
-        unsigned int GetSubstackIndex() const { return m_Size / m_SubstackCapacity; }
+        unsigned int GetSubstackIndex(bool push) const 
+        { 
+            if(push)
+            {
+                return m_Size / m_SubstackCapacity;
+            }
+            else if(m_Size > 0)
+            {
+                return (m_Size - 1) / m_SubstackCapacity;
+            }
+            else 
+            {
+                return 0;
+            }
+        }
 
         const unsigned int m_SubstackCapacity;
         unsigned int m_Size;
@@ -75,7 +110,7 @@ class SetOfStacks
         
 };
 
-DEF_TESTDATA(ArrayStackData, SetOfStacks, std::vector<Stack<int>>);
+DEF_TESTDATA(SetOfStackData, SetOfStacks, std::vector<Stack<int>>);
 
 // Push and pop tons of random numbers, ending with the original stack 
 // but doing your best to expose any problems in push/pop
@@ -97,15 +132,8 @@ static bool StressShuffle(SetOfStacks& shuffleStack)
         {
             // If nothing to pop, just push 
             // If something to pop, 50/50 chance to push another or pop 
-            bool shouldPush = pushCounter > popCounter && (rand() % 2);
-            if(shouldPush)
-            {
-                int val = rand();
-                shuffleStack.Push(val);
-                pushedValues.Push(val);
-                ++pushCounter;
-            }
-            else 
+            bool shouldPop = popCounter < pushCounter && (rand() % 2);
+            if(shouldPop)
             {
                 // Ensure popped value is as expected
                 int expected = pushedValues.Pop();
@@ -116,6 +144,13 @@ static bool StressShuffle(SetOfStacks& shuffleStack)
                     return false;
                 }
                 ++popCounter;
+            }
+            else 
+            {
+                int val = rand();
+                shuffleStack.Push(val);
+                pushedValues.Push(val);
+                ++pushCounter;
             }          
         }
 
@@ -154,14 +189,14 @@ static std::vector<Stack<int>>TestStack(SetOfStacks& inputStack)
 int Cci::Run_3_3()
 {
     const unsigned int kNumTestCases = 6;
-    ArrayStackData testCases[kNumTestCases] = {
+    SetOfStackData testCases[kNumTestCases] = {
     // Capacity     input                      expected
         {{1,    {{1, 2, 3}}},               {{{{1}}, {{2}}, {{3}}}}},
         {{3,    {{1, 2, 3}}},               {{{1, 2, 3}}}},
-        {{2,    {{1, 2, 3, 4, 5}}},         {{{{1, 2}}, {{3, 4}}, {{5}}}}},
+        {{2,    {{1, 2, 3, 4, 5}}},         {{{{1}}, {{2, 3}}, {{4, 5}}}}},
         {{4,    {{1, 2, 3, 4, 5}}},         {{{{1}}, {{2, 3, 4, 5}}}}},
         {{2,    {{1, 2, 3, 4, 5, 6, 7}}},   {{{{1}}, {{2, 3}}, {{4, 5}}, {{6, 7}}}}},
-        {{1,    {{}}},                      {{{}}}}
+        {{1,    {}},                        {}}
     };
 
     return TestRunner::RunTestCases<SetOfStacks, std::vector<Stack<int>>, kNumTestCases>(testCases, &TestStack);
