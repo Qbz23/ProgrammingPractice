@@ -42,6 +42,7 @@ int main(int argC, char** argV)
     TestRunner::RegisterTest(&Cci::Run_5_4, "5-4. Next Number");
     TestRunner::RegisterTest(&Cci::Run_5_6, "5-6. Bit Flip Conversion");
     TestRunner::RegisterTest(&Cci::Run_5_7, "5-7. Pairwise Swap");
+    TestRunner::RegisterTest(&Cci::Run_5_8, "5-8. Draw Line");
 
     if(argC > 1)
     {

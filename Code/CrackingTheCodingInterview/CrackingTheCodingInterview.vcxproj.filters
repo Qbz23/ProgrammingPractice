@@ -65,6 +65,9 @@
     <ClCompile Include="5-BitManipulation\5-7.cpp">
       <Filter>5-BitManipulation</Filter>
     </ClCompile>
+    <ClCompile Include="5-BitManipulation\5-8.cpp">
+      <Filter>5-BitManipulation</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="1-ArraysAndStrings">
