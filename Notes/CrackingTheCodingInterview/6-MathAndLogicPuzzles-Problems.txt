@@ -1,83 +1,61 @@
-Overview 
-== 
-Some of the most controversial question types, banned by some companies 
-Might get asked anyway, loose definition of what consitutes a puzzle/brain teaser
-Will almost always be logically deducible 
-Often have foundations in math or computer science 
-
-Primes 
-== 
-Often used in or the subject of puzzle questions 
-Every positive integer can be decomposed into a product of primes 
-Y is divisible by X if all primes in X's prime factorization exist in Y's 
-Brute force check if Xe[2, N] is prime, just check if divisible by [2, sqrt(n)]
-Can efficiently generate a list of primes with The Sieve of Eratosthenes 
-    Works by recognizing that all non-primes are divisible by a prime 
-    Start with list of numbers [2, N] 
-    For each value, remove all values divisible by it 
-    Impl
-        bool[] Sieve(int max)
-            int numResults = max + 1
-            bool isPrime[numResults] = { true }
-            int count = 0
-            isPrime[0] = isPrime[1] = false 
-            
-            int prime = 2 
-            while(prime < sqrt(max))
-                // Cross off multiples 
-                for(int i = prime * prime; i < numResults; i += prime) 
-                    isPrime[i] = false 
-                
-                // Get next prime 
-                prime += 1;
-                while(prime < numResults && !isPrime[prime]) 
-                    prime += 1
-            
-            return isPrime
-            
-            
-Probability 
+6-1 The Heavy Pill 
 ==
-    P(A /\ B) 
-        P(B->A)P(A)
-            Ex: Given number 1-10, prob both even and between 1 and 5 
-                P(B->A) = P(x is even, given x is between 1 and 5) = 2/5 
-                P(A) = P(x is between 1 and 5) = 1/2 
-                P(A /\ B) = P(x is both) = (2/5) * (1/2) = 1/5 
-    P(A \/ B) 
-        P(A) + P(B) - P(A /\ B)
-            Ex: Same but with or 
-                P(A) = P(x <= 5) = 1/2 
-                P(B) = P(x even) = 1/2 
-                P(A /\ B) = P(both) = 1/5 
-                P(A \/ V) = P(either) = 1/2 + 1/2 - 1/5 = 4/5 
-    Independence 
-        If P(A) tells you nothing about P(B), they are independent
-        If A and B and independent, P(A /\ B) is P(A) * P(B) 
-    Mutual Exclusivity
-        If A and B are mutually exclusive, P(A \/ B) is P(A) + P(B) 
-        Same eqn as before but simplified because P(A /\ B) = 0
-        
+20 Bottles of Pills. 19 Bottles 1g pills, but one has 1.1g pills 
+Given a scale that finds an exact measurement, how do you find the heavy bottle? 
+You can only use the scale once 
 
-Develop Rules and Patterns 
+6-2 Basketball
+==
+You can play one of two games 
+    1. One shot to make the hoop 
+    2. Three shots, you need 2/3 
+What values of probability of making the shot P results in either game being better? 
+
+6-3 Dominos 
+==
+Given 31 dominios, each covering 2 squares, can the entire board be covered? 
+Prove your answer by giving an example or showing why it's impossible 
+
+6-4 Ants on a Triangle 
+==
+Ant on tri vertices. Probability of collision between any two if they pick a 
+random direction and walk down the sides of the triangle? 
+
+6-5 Jugs of Water 
+==
+5q jug, 3q jug, and unlimited water. How do you get exactly 4q water? 
+Precisely filling up half (or some fraction) of the jug is impossible 
+
+6-6 Blue Eyed Island 
+==
+All blue eyed people must leave island 
+Can see other eye color but not own and others can't tell you 
+Don't know total count of blue eyed people, but it's at least 1 
+How many days for all blue eyed people to leave? 
+
+6-7 The Apocalypse 
+==
+All families must have one girl or be fined 
+All families continue to have children until they have one girl, at which point they stop 
+What is the gender ratio of the new generation? 
+
+6-8 Egg Drop 
+==
+100 Floor building, if egg dropped from nth floor or above, breaks 
+Given 2 eggs, find N while minimizing drops for the worst case 
+
+6-9 100 Lockers
 == 
-It may be useful to describe rules and patterns as you progress 
-Ex
-    Given 2 ropes, each taking exactly 1 hour to burn, how would you time
-    exactly 15 minutes?
-    Rule 1 
-        You can time X + Y minutes by burning a rope that takes Y minutes to 
-        burn immediately after a rope that takes X minutes to burn 
-    Rule 2 
-        You can light a rope at both ends to time X/2 minutes 
-    Rule 3 
-        You can get Y-X minutes or Y - X/2 minutes by lighting a second 
-        rope on the other end after a known period of time 
-    Soln
-        Light rope 1 at both ends and rope 2 at one end 
-        When rope 1 completely burns 30 mins have passed
-        Rope 2 now has 30 mins of burn time left 
-        Light the other end of rope 2 to double its burn time 
-        The time between lighting the other end and rope 2 completely burning is 15 min 
-          
-          
+100 closed lockers. 
+Open all of them, then close every second, then toggle every third. 
+Continues past third pass up to 100 passes, each time toggling the ith locker 
+After pass 100, where he only toggles locker 100, how many lockers are open? 
+
+6-10 Poison 
+== 
+1000 Bottles, one is poisoned. 10 test strips. 
+A single drop permanently sets the strip positive 
+Can re-use test strip as many times as you want if its negative 
+You can run tests once per day and it takes seven days to get a result 
+How would you figure out the poisoned bottle in as few days as possible? 
+
