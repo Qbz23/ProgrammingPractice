@@ -1,0 +1,83 @@
+Overview 
+== 
+Some of the most controversial question types, banned by some companies 
+Might get asked anyway, loose definition of what consitutes a puzzle/brain teaser
+Will almost always be logically deducible 
+Often have foundations in math or computer science 
+
+Primes 
+== 
+Often used in or the subject of puzzle questions 
+Every positive integer can be decomposed into a product of primes 
+Y is divisible by X if all primes in X's prime factorization exist in Y's 
+Brute force check if Xe[2, N] is prime, just check if divisible by [2, sqrt(n)]
+Can efficiently generate a list of primes with The Sieve of Eratosthenes 
+    Works by recognizing that all non-primes are divisible by a prime 
+    Start with list of numbers [2, N] 
+    For each value, remove all values divisible by it 
+    Impl
+        bool[] Sieve(int max)
+            int numResults = max + 1
+            bool isPrime[numResults] = { true }
+            int count = 0
+            isPrime[0] = isPrime[1] = false 
+            
+            int prime = 2 
+            while(prime < sqrt(max))
+                // Cross off multiples 
+                for(int i = prime * prime; i < numResults; i += prime) 
+                    isPrime[i] = false 
+                
+                // Get next prime 
+                prime += 1;
+                while(prime < numResults && !isPrime[prime]) 
+                    prime += 1
+            
+            return isPrime
+            
+            
+Probability 
+==
+    P(A /\ B) 
+        P(B->A)P(A)
+            Ex: Given number 1-10, prob both even and between 1 and 5 
+                P(B->A) = P(x is even, given x is between 1 and 5) = 2/5 
+                P(A) = P(x is between 1 and 5) = 1/2 
+                P(A /\ B) = P(x is both) = (2/5) * (1/2) = 1/5 
+    P(A \/ B) 
+        P(A) + P(B) - P(A /\ B)
+            Ex: Same but with or 
+                P(A) = P(x <= 5) = 1/2 
+                P(B) = P(x even) = 1/2 
+                P(A /\ B) = P(both) = 1/5 
+                P(A \/ V) = P(either) = 1/2 + 1/2 - 1/5 = 4/5 
+    Independence 
+        If P(A) tells you nothing about P(B), they are independent
+        If A and B and independent, P(A /\ B) is P(A) * P(B) 
+    Mutual Exclusivity
+        If A and B are mutually exclusive, P(A \/ B) is P(A) + P(B) 
+        Same eqn as before but simplified because P(A /\ B) = 0
+        
+
+Develop Rules and Patterns 
+== 
+It may be useful to describe rules and patterns as you progress 
+Ex
+    Given 2 ropes, each taking exactly 1 hour to burn, how would you time
+    exactly 15 minutes?
+    Rule 1 
+        You can time X + Y minutes by burning a rope that takes Y minutes to 
+        burn immediately after a rope that takes X minutes to burn 
+    Rule 2 
+        You can light a rope at both ends to time X/2 minutes 
+    Rule 3 
+        You can get Y-X minutes or Y - X/2 minutes by lighting a second 
+        rope on the other end after a known period of time 
+    Soln
+        Light rope 1 at both ends and rope 2 at one end 
+        When rope 1 completely burns 30 mins have passed
+        Rope 2 now has 30 mins of burn time left 
+        Light the other end of rope 2 to double its burn time 
+        The time between lighting the other end and rope 2 completely burning is 15 min 
+          
+          
