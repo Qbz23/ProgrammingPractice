@@ -4,13 +4,6 @@
 Given a scale that finds an exact measurement, how do you find the heavy bottle? 
 You can only use the scale once 
 
-6-2 Basketball
-==
-You can play one of two games 
-    1. One shot to make the hoop 
-    2. Three shots, you need 2/3 
-What values of probability of making the shot P results in either game being better? 
-
 6-3 Dominos 
 ==
 Given 31 dominios, each covering 2 squares, can the entire board be covered? 
