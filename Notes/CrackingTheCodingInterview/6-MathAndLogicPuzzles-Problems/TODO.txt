@@ -4,11 +4,6 @@
 Given a scale that finds an exact measurement, how do you find the heavy bottle? 
 You can only use the scale once 
 
-6-4 Ants on a Triangle 
-==
-Ant on tri vertices. Probability of collision between any two if they pick a 
-random direction and walk down the sides of the triangle? 
-
 6-5 Jugs of Water 
 ==
 5q jug, 3q jug, and unlimited water. How do you get exactly 4q water? 

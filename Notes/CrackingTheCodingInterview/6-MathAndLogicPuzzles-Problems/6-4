@@ -1,0 +1,18 @@
+6-4 Ants on a Triangle 
+==
+Ant on tri vertices. Probability of collision between any two if they pick a 
+random direction and walk down the sides of the triangle? 
+
+Initial Solution 
+== 
+The only scenario where they don't collide is all going in same direction 
+Both of those scenarios ("left" and "right") are (1/2)^3 
+No collision then is 2(1/2)^3 which is 0.25 
+Any collisio is 1 - no collision so it's therefore 0.75
+
+Book Solution 
+== 
+Same solution but also notes its generalizable to an N dimensional polygon with 
+  1 - 2(1/2)^N 
+  1 - (1/2)^(N-1) 
+  
