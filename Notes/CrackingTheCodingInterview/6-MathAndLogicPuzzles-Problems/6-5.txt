@@ -1,0 +1,23 @@
+6-5 Jugs of Water 
+==
+5q jug, 3q jug, and unlimited water. How do you get exactly 4q water? 
+Precisely filling up half (or some fraction) of the jug is impossible 
+
+Initial Solution 
+== 
+The typical idea of this sort of problem is you can acquire other quantities 
+by pouring one jug into another 
+For example, fill 5q, pour it into 3q, 2q remains in 5q jug 
+To "advance" towards new possible outcomes, you need to use your new quantities 
+Fill 5q 
+Pour 5q into 3q, 2q remaining 
+Can't do anything else with this state, need to dump a jug. Dump 3q.
+Now have 0/3q and 2/5q, move the 2 into 3q -> 2/3q and 0/5q
+Can't lose 2q, so the only thing to do is fill 5q -> 2/3q and 5/5q 
+Can now take advantage of the remaining space in 3q, there is only 1q remaining. 
+Therefore if fill remainder of 3q from the 5q, we're left with 4q   
+
+Book Solution 
+== 
+Same solution, but also notes if two jug sizes are relatively prime, you 
+can measure any value between 1 and the sum of their sizes  

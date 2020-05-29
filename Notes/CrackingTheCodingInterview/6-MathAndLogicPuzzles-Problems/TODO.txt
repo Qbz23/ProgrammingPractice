@@ -4,10 +4,6 @@
 Given a scale that finds an exact measurement, how do you find the heavy bottle? 
 You can only use the scale once 
 
-6-5 Jugs of Water 
-==
-5q jug, 3q jug, and unlimited water. How do you get exactly 4q water? 
-Precisely filling up half (or some fraction) of the jug is impossible 
 
 6-6 Blue Eyed Island 
 ==
