@@ -4,11 +4,6 @@
 Given a scale that finds an exact measurement, how do you find the heavy bottle? 
 You can only use the scale once 
 
-6-3 Dominos 
-==
-Given 31 dominios, each covering 2 squares, can the entire board be covered? 
-Prove your answer by giving an example or showing why it's impossible 
-
 6-4 Ants on a Triangle 
 ==
 Ant on tri vertices. Probability of collision between any two if they pick a 

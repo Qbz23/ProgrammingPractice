@@ -1,0 +1,51 @@
+6-3 Dominos 
+==
+Given 31 dominios, each covering 2 squares, can the entire 8x8 board be covered? 
+Prove your answer by giving an example or showing why it's impossible 
+
+Initial Solution
+==
+There's no problem with the 8 wide rows, the 7 wide rows add the problem 
+The only real way tp solve a 7 wide row is to make the adjacent row 7 wide 
+|------X
+|------|
+|------|
+|------|
+|------|
+|------|
+!------|
+X------! 
+So yeah it look like it doesn't work. 
+If it were 8x9 with a few extra dominos it would work 
+Can generally say it wont fit on even rows. Say 4x4 
+|--X
+|--|
+!--|
+X--! 
+But 4x5 would be fine 
+|--X
+|--|
+|--|
+|--|
+X--|
+No alternate configuration of dominos is relevant 
+They ultimately have to make their neighbor's width 7 
+The row straddling piece alternates sides down the board 
+A   X
+A   B
+C   B
+C   D
+X   D
+The odd variations work because the final side piece does not 
+conflict with the blocked corner 
+
+Book Solution 
+== 
+Provides a proof of why it's impossible 
+  The board initially has 32 black and 32 white squares 
+  Remove opposite corners (which necessarily are the same color)
+  30 black squares and 32 white squares 
+  Each domino must take up 1 black square and 1 white square 
+  30 black squares is insufficient to contain 31 dominos 
+Consistent with initial solution odd row count observation in that 
+having odd rows would make the corners have different colors 
