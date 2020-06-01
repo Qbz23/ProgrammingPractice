@@ -1,0 +1,45 @@
+6-8 Egg Drop 
+==
+100 Floor building, if egg dropped from nth floor or above, breaks 
+Given 2 eggs, find N while minimizing drops for the worst case 
+
+Initial Solution
+==
+The problem seemingly suggests binary search but there is a bit of a twist 
+Cannot fail to find the lowest floor, so must be more careful with the second egg 
+Start with the 50th floor, 
+If it breaks, you'd want to go the 25th but you can't, you have to go the first 
+If it doesn't break, go to the 75th 
+Similarly, on break, need to drop down to the bottom of your range 
+That will give you a solution but it seems like too many drops 
+This seems like an opportunity to shift the worst case 
+Say we instead start at 25, worst case is now 25 drops 
+If it doesnt break, bisect the upper range which would be 52 
+The worst case would be a break here, which would require counting up from 26
+This leads to maybe 26 drops
+This is better than previous binary search case that could require up to 50 
+So this shows that the bottom of the range should be prioritized to reduce the worst case. 
+Going to stop here, hopefully the book can move from a slight worst case reduction to a truly optimal stragey
+
+Book Solution
+==
+Proposes naive solution of starting at 10th floor then 20th, etc 
+This leads to at most 19 drops total, already better than my solutions 
+If the egg breaks on floor 10, 10 drops worst case. Else, 19 drops worst case. 
+We want to make these two possibilites more equal in terms of drops 
+    A perfect system would be one in which Drops(E1) == Drops(E2), for any Drops(E1)
+    Each drop of e1 advances the range up, allowing one fewer floor for e2 
+    We must therefore, reduce steps required by e2 by one drop each time. 
+        Ex. E1 dropped on 20 then 30, e2 req up to 9 steps. 
+        Next e2 drop must reduce potential e2 steps to 8
+        To do this, drop e1 at 39 
+    Therefore, if X is starting floor, X must go up by (X-1),(X-2), etc
+    X + (X - 1) + (X - 2) ... + 1 = 100 
+    (X(X + 1))/2 = 100 
+    X = 13.65
+    Round up, cant round down, it wont cover the whole range 
+    X = 14
+    You can generalize 100 to number of floors 
+    
+    
+    

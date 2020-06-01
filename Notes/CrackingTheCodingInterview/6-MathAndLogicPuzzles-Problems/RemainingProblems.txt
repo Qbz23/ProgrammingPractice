@@ -1,3 +1,6 @@
+Remaining Problems, could be solved at a future date but not doing 100% of the problems and 
+this chapter in particular is of questionable relative value, better to just move on for now 
+
 6-1 The Heavy Pill 
 ==
 20 Bottles of Pills. 19 Bottles 1g pills, but one has 1.1g pills 
@@ -18,11 +21,6 @@ All families must have one girl or be fined
 All families continue to have children until they have one girl, at which point they stop 
 What is the gender ratio of the new generation? 
 
-6-8 Egg Drop 
-==
-100 Floor building, if egg dropped from nth floor or above, breaks 
-Given 2 eggs, find N while minimizing drops for the worst case 
-
 6-9 100 Lockers
 == 
 100 closed lockers. 
@@ -37,4 +35,3 @@ A single drop permanently sets the strip positive
 Can re-use test strip as many times as you want if its negative 
 You can run tests once per day and it takes seven days to get a result 
 How would you figure out the poisoned bottle in as few days as possible? 
-
