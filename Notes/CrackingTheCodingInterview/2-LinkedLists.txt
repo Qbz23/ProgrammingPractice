@@ -1,0 +1,17 @@
+Linked List "Runner" Technique 
+==
+This technique can be used in many problems, you iterate through the linked 
+list with two pointers at the same time, with one ahead of the other.
+The "fast" node might be ahead by a fixed amount or a multiple of the "slow"
+node's speed. 
+Say you wanted to determine the middle element of a singly linked list. Rather 
+than attempting to determine the middle after you've determined the length, you 
+could have a fast pointer walk the linked list at double speed. When the fast 
+pointer hits the end, the slow pointer is at the middle. 
+
+Linked List Problems and Recursion 
+== 
+Many problems rely on recursion, if having trouble on a linked list problem, 
+you should consider if a recursive solution might be appropriate. 
+
+
