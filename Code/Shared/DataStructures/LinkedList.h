@@ -26,6 +26,7 @@ class LinkedList
         inline const Node* GetHead() const { return mpHead; }
         
         bool operator==(const LinkedList other) const;
+        inline bool operator!=(const LinkedList other) const { return !(*this == other); }
     
     private:
         Node* mpHead = nullptr;

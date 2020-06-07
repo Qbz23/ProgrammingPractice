@@ -23,6 +23,7 @@ int main(int argC, char** argV)
 
     // Linked Lists 
     TestRunner::RegisterTest(&Cci::Run_2_2, "2-2. Kth to Last");
+    TestRunner::RegisterTest(&Cci::Run_2_3, "2-3. Delete Middle");
     TestRunner::RegisterTest(&Cci::Run_2_6, "2-6. Is Palindrome");
 
     // Stacks and Queues 
