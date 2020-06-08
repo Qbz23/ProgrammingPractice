@@ -146,12 +146,16 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="1-ArraysAndStrings\1-9.cpp" />
+    <ClCompile Include="2-LinkedLists\2-1.cpp" />
     <ClCompile Include="2-LinkedLists\2-2.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="2-LinkedLists\2-3.cpp" />
+    <ClCompile Include="2-LinkedLists\2-4.cpp" />
+    <ClCompile Include="2-LinkedLists\2-5.cpp" />
     <ClCompile Include="2-LinkedLists\2-6.cpp" />
+    <ClCompile Include="2-LinkedLists\2-7.cpp" />
     <ClCompile Include="3-StacksAndQueues\3-1.cpp" />
     <ClCompile Include="3-StacksAndQueues\3-2.cpp" />
     <ClCompile Include="3-StacksAndQueues\3-3.cpp" />

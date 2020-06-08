@@ -16,7 +16,7 @@ static void GetDepthsImpl(BinaryTree::Node* n, int depth, std::vector<LinkedList
         return;
     }
     
-    out[depth].Push(n->data);
+    out[depth].PushBack(n->data);
     depth += 1;
     
     GetDepthsImpl(n->pLeft, depth, out);

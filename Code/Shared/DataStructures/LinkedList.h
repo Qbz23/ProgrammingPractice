@@ -20,13 +20,17 @@ class LinkedList
         LinkedList(const LinkedList& l);
         LinkedList& operator=(const LinkedList& l);
         
-        void Push(int d);
-                
+        void PushFront(int d);
+        void PushFront(Node* pNode);
+
+        void PushBack(int d);
+        void PushBack(Node* pNode);
+
         inline Node* GetHead() { return mpHead; }
         inline const Node* GetHead() const { return mpHead; }
         
-        bool operator==(const LinkedList other) const;
-        inline bool operator!=(const LinkedList other) const { return !(*this == other); }
+        bool operator==(const LinkedList& other) const;
+        inline bool operator!=(const LinkedList& other) const { return !(*this == other); }
     
     private:
         Node* mpHead = nullptr;

@@ -43,11 +43,11 @@ LinkedList& LinkedList::operator=(const LinkedList& l)
     return *this;
 }
 
-void LinkedList::Push(int d)
+void LinkedList::PushBack(Node* pNode)
 {
     if (!mpHead)
     {
-        mpHead = new Node(d);
+        mpHead = pNode;
     }
     else
     {
@@ -56,18 +56,43 @@ void LinkedList::Push(int d)
         {
             cur = cur->pNext;
         }
-        cur->pNext = new Node(d);
+        cur->pNext = pNode;
     }
 }
 
-bool LinkedList::operator==(const LinkedList other) const
+void LinkedList::PushBack(int d)
+{
+    Node* pNode = new Node(d);
+    PushBack(pNode);
+}
+
+void LinkedList::PushFront(Node* pNode)
+{
+    if (!mpHead)
+    {
+        mpHead = pNode;
+    }
+    else
+    {
+        pNode->pNext = mpHead;
+        mpHead = pNode;
+    }
+}
+
+void LinkedList::PushFront(int d)
+{
+    Node* pNode = new Node(d);
+    PushFront(pNode);
+}
+
+bool LinkedList::operator==(const LinkedList& other) const
 {
     const Node* pCur = mpHead;
     const Node* pCurOther = other.GetHead();
 
     while (pCur)
     {
-        if (!pCurOther || (pCur->data != pCur->data))
+        if (!pCurOther || (pCur->data != pCurOther->data))
         {
             return false;
         }

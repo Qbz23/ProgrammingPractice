@@ -22,9 +22,13 @@ int main(int argC, char** argV)
     TestRunner::RegisterTest(&Cci::Run_1_9, "1-9. Is Rotation");
 
     // Linked Lists 
+    TestRunner::RegisterTest(&Cci::Run_2_1, "2-1. Remove Dupes");
     TestRunner::RegisterTest(&Cci::Run_2_2, "2-2. Kth to Last");
     TestRunner::RegisterTest(&Cci::Run_2_3, "2-3. Delete Middle");
+    TestRunner::RegisterTest(&Cci::Run_2_4, "2-4. Partition");
+    TestRunner::RegisterTest(&Cci::Run_2_5, "2-5. Sum Lists");
     TestRunner::RegisterTest(&Cci::Run_2_6, "2-6. Is Palindrome");
+    TestRunner::RegisterTest(&Cci::Run_2_7, "2-7. Intersction");
 
     // Stacks and Queues 
     TestRunner::RegisterTest(&Cci::Run_3_1, "3-1. Array Multi Stack");
