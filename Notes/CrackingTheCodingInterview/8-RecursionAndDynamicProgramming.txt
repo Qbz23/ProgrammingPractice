@@ -1,0 +1,37 @@
+Overview 
+== 
+Good candidates for recursive solutions can be thought of as being composed of 
+subproblems. Some examples of suggesting a recursive solution:
+    Compute the Nth...
+    List the first N...
+    Compute all...
+Don't tunnel vision on a recursive solution, you might have been wrong in your
+evaluation that a recursive solution was called for. 
+
+Approaches 
+== 
+Generally, you want to be able to compute f(n) through some modification of the
+result of f(n-1)
+Bottom-Up Approach - Most intuitive, solve the problem for the simplest case, 
+like for a single element. Next, proceed to the second and third elements, 
+thinking about how you can build solutions from previous ones 
+Top-Down Approach -  Think about how to divide the problem for case N into 
+subproblems, be careful about overlap between the cases 
+Half-And-Half Approach - Repeatedly divide the data in half, like a binary 
+search or a merge sort 
+
+Recursive vs Iterative 
+== 
+Recursive algs can be very space inefficient. Because each recursive call adds 
+a new layer to the stack, your alg uses at least O(N) memory if it traverses 
+to recursive depth N 
+You can avoid this issue by implementing the alg iteratively. All recursive 
+algs can be implemented iteratively, although the code to do so can be much 
+more complex 
+
+Dynamic Programming and Memoization 
+==
+Dynamic programming is mostly just finding the overlapping subproblems in a 
+recursive alg and caching those results for future recursive calls 
+Memoization is sometimes used to refer to top-down dynamic programming 
+
