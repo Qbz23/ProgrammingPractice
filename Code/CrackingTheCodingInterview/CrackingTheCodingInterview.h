@@ -29,5 +29,6 @@ namespace Cci
     int Run_5_6();
     int Run_5_7();
     int Run_5_8();
+    int Run_8_3();
     int Run_8_4();
 };

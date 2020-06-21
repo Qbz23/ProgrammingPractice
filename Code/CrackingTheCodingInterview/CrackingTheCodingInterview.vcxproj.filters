@@ -86,6 +86,9 @@
     <ClCompile Include="8-RecursionAndDynamicProgramming\8-4.cpp">
       <Filter>8-RecursionAndDynamicProgramming</Filter>
     </ClCompile>
+    <ClCompile Include="8-RecursionAndDynamicProgramming\8-3.cpp">
+      <Filter>8-RecursionAndDynamicProgramming</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="1-ArraysAndStrings">
