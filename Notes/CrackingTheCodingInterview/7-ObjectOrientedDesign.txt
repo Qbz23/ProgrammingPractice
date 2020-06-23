@@ -1,0 +1,33 @@
+Overview 
+== 
+These questions have you sketch out classes and methods to implement a 
+technical problem or the functionality of some real life object 
+
+Approach 
+== 
+1. Handle Ambiguity 
+    Questions are often intentionally vauge to test your assumptions 
+    Ask clarifying questions to clear up ambiguity in the presented scenario
+2. Define the Core Objects 
+    Consider what classes might be required to implement this problem 
+3. Analyze Relationships
+    Consider the relationships between your core objects 
+      What objects are members of other objects?
+      What objects inherit from any other objects? 
+      Are relationships one-to-many? many-to-many? 
+4. Investigate Actions 
+    Consider key actions objects will take and how they can relate to each other
+    
+Design Patterns
+==
+Mostly beyond the scope of an interview, interviewers typically won't ask
+Singleton and Factory might be frequently useful in interviews 
+Singleton 
+    Hold a single object.
+    On first access, alloc it
+    On subsequent accesses, retun already allocated instance 
+Factory 
+    Facilitates creation of different derived types with a shared interface 
+    Takes parameters to inform creation, create relevant derived class  
+    Return subclass as shared base interface 
+    
