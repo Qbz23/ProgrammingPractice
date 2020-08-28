@@ -52,6 +52,8 @@ int main(int argC, char** argV)
     // Recursion and Dynamic Programming
     TestRunner::RegisterTest(&Cci::Run_8_3, "8-3. Magic Index");
     TestRunner::RegisterTest(&Cci::Run_8_4, "8-4. Power Set");
+    TestRunner::RegisterTest(&Cci::Run_8_6, "8-6. Towers of Hanoi");
+
 
     if(argC > 1)
     {
