@@ -15,8 +15,6 @@
 #include <cassert>
 #include "../../Shared/DataStructures/Stack.h"
 
-DEF_TESTDATA(MagicIndexData, std::vector<int>, uint32_t);
-
 //
 // Each move of N disks has a source stack, a dest stack, and a working stack 
 // 
@@ -115,63 +113,117 @@ DEF_TESTDATA(MagicIndexData, std::vector<int>, uint32_t);
 //      Set source and working 
 //
 
-class Tower 
+DEF_TESTDATA(HanoiData, uint32_t, bool);
+
+class Hanoi
 {
     public:
-        static const unsigned int skNumTowers = 3;
+        static const uint32_t skNumTowers = 3;
 
-        Tower(unsigned int N)
+        Hanoi(uint32_t N) : m_NumDisks(N)
         {
-            for(int i = (int)N; i >= 0; --i)
+            for(uint32_t i = N; i > 0; --i)
             {
-                Towers[0].Push(i);
+                m_Towers[0].Push(i);
             }
         }
-        Stack<unsigned int> Towers[skNumTowers];
 
-        std::vector<unsigned int> GetFinalTower() const 
+        void MoveDisk(uint32_t src, uint32_t dst)
         {
-            Stack<unsigned int> copy(Towers[skNumTowers - 1]);
-            std::vector<unsigned int> result;
-            while(!copy.Empty())
-            {
-                result.push_back(copy.Pop());
-            }
-            return result;
+            // Assert there's a source disk to move
+            assert(!m_Towers[src].Empty());
+            // Assert the move is valid 
+            assert(m_Towers[dst].Empty() || m_Towers[src].Top() < m_Towers[dst].Top());
+            m_Towers[dst].Push(m_Towers[src].Pop());
         }
+
+        bool IsSolved() const 
+        {
+            // Ensure all disks ended up on the dst tower
+            if(!m_Towers[0].Empty() || 
+               !m_Towers[1].Empty() || 
+                m_Towers[2].Size() != m_NumDisks)
+            {
+                Log::Debug("Hanoi Validation Failed, not all disks are on dst tower.\n");
+                return false;
+            }
+            // Ensure disks are smallest -> largest 
+            else 
+            {            
+                uint32_t prev = 0;
+                Stack<uint32_t> dstTowerCopy(m_Towers[2]);
+                while(!dstTowerCopy.Empty())
+                {
+                    uint32_t top = dstTowerCopy.Pop();
+                    if(top < prev)
+                    {
+                        Log::Debug(
+                            "Hanoi Validation Failed, popped " + std::to_string(top) + 
+                            " which was less than prev disk " + std::to_string(prev) + "\n");
+                        return false;
+                    }
+                    else 
+                    {
+                        top = prev;
+                    }
+                }
+            }
+
+            return true;
+        }
+
+    private:
+        Stack<uint32_t> m_Towers[skNumTowers];
+        const uint32_t m_NumDisks;
 };
 
-static uint32_t MagicIndex(std::vector<int>& input)
+void MoveDiskStack(Hanoi& towers, uint32_t srcIndex, 
+    uint32_t workingIndex, uint32_t dstIndex, uint32_t numDisks)
 {
-    //return MagicIndexImpl(input, 0, (uint32_t)input.size());
+    if(numDisks == 1)
+    {
+        towers.MoveDisk(srcIndex, dstIndex);
+    }
+    else if(numDisks == 2)
+    {
+        towers.MoveDisk(srcIndex, workingIndex);
+        towers.MoveDisk(srcIndex, dstIndex);
+        towers.MoveDisk(workingIndex, dstIndex);
+    }
+    else // numDisks > 2
+    {
+        // Move N-1 to working, using current dst as working
+        MoveDiskStack(towers, srcIndex, dstIndex, workingIndex, numDisks - 1);
+        // Move yourself (the Nth disk) to dst 
+        towers.MoveDisk(srcIndex, dstIndex);
+        // Now source is empty and n-1 substack is on working
+        // Move that n-1 substack to dst, using empty source as working
+        MoveDiskStack(towers, workingIndex, srcIndex, dstIndex, numDisks - 1);
+    }
+}
+
+static bool SolveHanoi(uint32_t& numDisks)
+{
+    Hanoi h(numDisks);
+    MoveDiskStack(h, 0, 1, 2, numDisks);
+    return h.IsSolved();
 }
 
 int Cci::Run_8_6()
 {
-    //static const uint32_t NoSolution = (uint32_t)-1;
-    //
-    //const unsigned int kNumTestCases = 13;
-    //MagicIndexData testCases[kNumTestCases] = {
-    //    {{-1, 1, 3},                                1},     // Obvious solution
-    //    {{0, 2, 3, 4, 5},                           0},     // Solution at first value 
-    //    {{-1, 0, 1, 2, 4},                          4},     // Solution at last value 
-    //    {{-8, 4, 0, 3, 7, 9},                       3},     // Simple but step up
-    //    {{-8, 1, 3, 4, 5, 6},                       1},
-    //    {{-1, 2, 3},                       NoSolution},     // Simple no solution
-    //    {{1, 2, 4},                        NoSolution},     
-    //    {{-1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, NoSolution},     // No solution deep left
-    //    {{-1, 0, 1, 2, 3, 4, 5, 6, 7, 10}, NoSolution},     // No solution deep right
-    //    {{-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 
-    //       9, 10, 12, 16, 18, 20, 21, 25},         12},     // Stress
-    //    {{-2, -1, 2, 4, 5, 6, 7, 8, 9, 10,
-    //       11, 12, 13, 16, 18, 20, 21, 25},         2},     
-    //    {{-1, 0, 1, 2, 3, 4, 5, 6, 7, 8,
-    //       9, 10, 13, 16, 18, 20, 21, 25}, NoSolution},     // Stress no soln
-    //    {{-2, -1, 3, 4, 5, 6, 7, 8, 9, 10,
-    //      11, 12, 13, 16, 18, 20, 21, 25}, NoSolution},
-    //};
-    //
-    //return TestRunner::RunTestCases<std::vector<int>, uint32_t, kNumTestCases>(testCases, &MagicIndex);
+    const uint32_t kNumTestCases = 7;
+    HanoiData testCases[kNumTestCases] = {
+        {1,     true},      // Expoentially starts slowing down in the low 20's. 
+        {2,     true},      //  N = 1: 1 move 
+        {3,     true},      //  N = 2: 3 moves
+        {4,     true},      //  N = 3: 3 moves to working + self + 3 moves working->dst = 7
+        {5,     true},      // 
+        {16,     true},     // F(N) = 2 * F(N-1) + 1
+        {17,     true}      // F(N) = 2^N - 1                      
+    };                      // F(3) = 2^3 - 1 = 7
+    
+    // So O(2^n), which explains the explosion around the 20's
+    // F(20) = 1048575, F(25) = 33554431, F(30) = 1073741823                                 
 
-    return 0;
+    return TestRunner::RunTestCases<uint32_t, bool, kNumTestCases>(testCases, &SolveHanoi);
 }
