@@ -1,0 +1,31 @@
+Permutation vs Combination 
+== 
+Permutations
+    order matters 
+        AABB != ABAB 
+    Simply n! 
+Combinations
+    order doesn't matter 
+    AABB == ABAB 
+    n! / (r!(n-r)!) where n is how many youre selecting r from n options 
+    
+Relation of Two Events 
+== 
+Simple Rules 
+    And means multiply 
+    Or means add 
+Disjoint
+    Two events are disjoint if mutually exclusive 
+    If events are disjoint, or can be calculated simply P(AvB) = P(A) + P(B) 
+    If they aren't, must remove overlap P(AvB) = P(A) + P(B) - P(A^B)
+Indepdendent 
+    Two events are independent if they do not influence each other 
+    You can use the simple multiply rule on indepdendent events P(A^B) = P(A)P(B)
+    If they're not indepdendent, they must be addressed with conditional probability 
+    
+Compliment 
+== 
+For answering probability questions using "at least" 
+It's often easier to subtract that you don't get at least as many as specified 
+    P(A) + P(not A) = 1 -> 1 - P(not A) = P(A) 
+    
