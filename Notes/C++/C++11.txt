@@ -1,0 +1,70 @@
+https://lhcb.github.io/developkit-lessons/first-development-steps/05a-cpp11.html
+
+Auto 
+==
+Allows you to avoid writing out long types if the type is deductible 
+Probably better in many cases to just write out the type you intend 
+Iterators are one good example of where it's probably fine to use auto 
+
+Containers and Iterators
+==
+C++11 enables syntax similar to foreach in other languages 
+    for(auto& value : myVector)
+Also containers can now be more easily initialized 
+    std::vector<int> values = {1, 2, 3}
+
+Functional Programming 
+==
+It's now easier to create functions as objectas via lambdas 
+    auto square = [](double x){return x*x;};
+    double fiveSquared = square(5.0);
+    
+Smart Pointers 
+== 
+https://www.geeksforgeeks.org/auto_ptr-unique_ptr-shared_ptr-weak_ptr-2/
+std::unique_pointer 
+    Prevents the pointer from being copied 
+        unique_ptr<A> ptr2 = ptr1;    // Will be an error
+    Move semantics can change which ptr resource is stored in 
+        unique_ptr<A> ptr2 = move(ptr1); // Works, resource now stored in ptr2
+    Use unique pointer when you want to have exclusive ownership of a resource 
+std::shared_pointer 
+    Reference counted pointer, when no refs left, the resource is destroyed
+    Used to share ownership of a resource
+std::weak_pointer 
+    Cyclic dependencies pose a problem for shared_pointers 
+        If class A has a shared pointed to B and B has a shared pointer to A, 
+        theyll never be destroyed 
+    A weak_pointer can solve this issue, like shared but don't have 'ownership' 
+    Weak pointers need to be validated because the object might go out of scope 
+    
+Variadic Templates 
+== 
+Allow a function or ctor to take an arbitrary number of arguments of any time 
+Parameter expansion happens at compile time, so there's no runtime penalty 
+The syntax uses the following constructs: 
+    Declare a parameter pack 
+        ellipses to the left of a param name <template.... Ts>
+    Expand a parameter pack 
+        ellipses to the right of a param pack. Often in body of functions
+        relevant op will happen for each param in the pack 
+    Counting the parameters 
+        use the sizeof...() function, which returns num params in a pack 
+Example 
+    template<typename T, typename... Ts>
+    void print(T value, Ts... values) 
+    {
+        std::cout << value << " ";
+        print(values...);
+    }
+    
+Move Semantics 
+== 
+Meant to fix wasteful code like 
+    GiantObject item = GiantObject_returning_function();
+        The GiantObject is created in the function 
+        It's returned and copied to new object item
+        The function copy is then deleted 
+C++ compilers should be able to convert the wasteful copies above into a move
+
+
